@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 16:03:53 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/08/31 16:04:06 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/08/31 16:14:36 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	return ((int)(ss1[i] - ss2[i]));
 }
- 

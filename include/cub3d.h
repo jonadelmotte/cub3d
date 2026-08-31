@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/08/31 15:16:15 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/08/31 16:14:24 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBD3D_H
+#ifndef CUB3D_H
 # define CUB3D_H
 
 # include "libft/libft.h"
-# include "mlx.h"
+// # include "mlx.h"
 
 #endif

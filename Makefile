@@ -33,7 +33,7 @@ vpath %.c $(SRC_DIR) $(SRC_DIR)/parsing
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	@$(CC) $(FLAGS) $(MLX_FLAGS) -o $(NAME)
+	@$(CC) $(FLAGS) -o $(NAME)
 	@echo -e "$(GREEN)cub3d Compiled!$(RESET)"
 
 $(OBJ_DIR)%.o: %.c $(INCLUDE) Makefile | $(OBJF)
