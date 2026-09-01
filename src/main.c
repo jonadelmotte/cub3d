@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 16:01:35 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/08/31 16:03:23 by sdabbas          ###   ########.fr       */
+/*   Created: 2026/09/01 11:29:08 by jdelmott          #+#    #+#             */
+/*   Updated: 2026/09/01 11:54:18 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/cub3d.h"
 
-size_t	ft_strlen(const char *s)
+int main()
 {
-	size_t	i;
+    char    lol[3] = "ab";
 
-	i = 0;
-	if (s)
-	{
-		while (s[i])
-			i++;
-	}
-	return (i);
+    printf("%s, %zu", lol, ft_strlen(lol));
 }

@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/01 11:51:04 by jdelmott         ###   ########.fr       */
+/*   Created: 2026/09/01 11:39:28 by jdelmott          #+#    #+#             */
+/*   Updated: 2026/09/01 11:40:02 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../libft.h"
 
-# include "../libft/libft.h"
-// # include "mlx.h"
-
-# define EMPTY_SPACE '0'
-# define WALL '1'
-# define ESC 65307
-# define KEY_W 119
-# define KEY_S 115
-# define KEY_A 97
-# define KEY_D 100
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
-
-typedef struct s_cub
+char	*ft_strchr(const char *s, int c)
 {
-    char **map;
-    int width;
-    int height;
-}           t_cub;
+	size_t	i;
+	char	c2;
 
-#endif
+	c2 = (char)c;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c2)
+			return ((char *)s + i);
+		i++;
+	}
+	if (c2 == '\0')
+		return ((char *)s + i);
+	return (NULL);
+}

@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/01 11:51:04 by jdelmott         ###   ########.fr       */
+/*   Created: 2026/08/31 16:09:09 by sdabbas           #+#    #+#             */
+/*   Updated: 2026/09/01 11:45:41 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../libft.h"
 
-# include "../libft/libft.h"
-// # include "mlx.h"
-
-# define EMPTY_SPACE '0'
-# define WALL '1'
-# define ESC 65307
-# define KEY_W 119
-# define KEY_S 115
-# define KEY_A 97
-# define KEY_D 100
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
-
-typedef struct s_cub
+void	ft_bzero(void *s, size_t n)
 {
-    char **map;
-    int width;
-    int height;
-}           t_cub;
+	unsigned char	*t;
+	size_t			m;
 
-#endif
+	if (!s)
+		return ;
+	t = (unsigned char *)s;
+	m = 0;
+	while (m < n)
+	{
+		t[m] = '\0';
+		m++;
+	}
+}
