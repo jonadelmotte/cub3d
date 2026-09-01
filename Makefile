@@ -10,8 +10,8 @@ FLAGS = -Wall -Wextra -Werror -lm -g
 
 INCLUDE = include/cub3d.h
 
-SRC = $(addprefix $(SRC_DIR), $(addprefix .c), $(FILES))
-OBJ = $(addprefix $(OBJ_DIR), $((addsuffix .o, $(FILES)))
+SRC = $(addprefix $(SRC_DIR), $(addsuffix .c), $(FILES))
+OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
