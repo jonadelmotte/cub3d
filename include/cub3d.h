@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/01 16:04:20 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/01 16:27:58 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,25 @@
 
 typedef struct s_cub
 {
-    char **map;
-    int width;
-    int height;
-}           t_cub;
+	char	**map;
+	int		width;
+	int		height;
+}			t_cub;
+
+typedef struct s_lexer
+{
+    char    *NO;
+    char    *SO;
+    char    *WE;
+    char    *EA;
+    char    *F;
+    char    *C;
+    char    **map;
+}           t_lexer;
+
+//INIT A NULL : LEX
+// GNL avec espace (remplir info des qu'on les croise)
+// si tt est rempli sinon error
+// parsing map
 
 #endif
