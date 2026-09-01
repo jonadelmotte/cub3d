@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/01 11:29:08 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/01 11:54:18 by jdelmott         ###   ########.fr       */
+/*   Created: 2026/09/01 11:39:28 by jdelmott          #+#    #+#             */
+/*   Updated: 2026/09/01 11:40:02 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../libft.h"
 
-int main()
+char	*ft_strchr(const char *s, int c)
 {
-    char    lol[3] = "ab";
+	size_t	i;
+	char	c2;
 
-    printf("%s, %zu", lol, ft_strlen(lol));
+	c2 = (char)c;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c2)
+			return ((char *)s + i);
+		i++;
+	}
+	if (c2 == '\0')
+		return ((char *)s + i);
+	return (NULL);
 }
