@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+         #
+#    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/01 11:34:04 by jdelmott          #+#    #+#              #
-#    Updated: 2026/09/01 12:25:48 by jdelmott         ###   ########.fr        #
+#    Updated: 2026/09/01 16:04:02 by sdabbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,7 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 
 CC = cc
-FLAGS = -Wall -Werror -Wextra
-
-INCLUDE = libft.h
+FLAGS = -Wall -Werror -Wextra -I.
 
 SRC = $(addprefix $(SRC_DIR), $(addsuffix) .c, $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
@@ -44,7 +42,7 @@ $(NAME): $(OBJ)
 	@ar rcs $@ $^
 	@echo -e "$(PURPLE_2)libft Compiled!$(RESET)"
 
-$(OBJ_DIR)%.o: %.c $(INCLUDE) Makefile | $(OBJF)
+$(OBJ_DIR)%.o: %.c $(OBJF)
 	@$(CC) $(FLAGS) -c -g3 $< -o $@
 
 clean:

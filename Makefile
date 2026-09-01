@@ -6,9 +6,9 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 
 CC = cc
-FLAGS = -Wall -Wextra -Werror -lm -g
+INCLUDE = include
 
-INCLUDE = include/cub3d.h
+FLAGS = -Wall -Wextra -Werror -lm -g -I$(INCLUDE)
 
 SRC = $(addprefix $(SRC_DIR), $(addsuffix .c), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
@@ -32,7 +32,7 @@ RESET = \033[0;39
 $(OBJF):
 	@mkdir -p $(OBJ_DIR)
 
-vpath %.c $(SRC_DIR)
+vpath %.c $(SRC_DIR) $(SRC_DIR)/parsing 
 
 all: $(NAME)
 
@@ -40,7 +40,7 @@ $(NAME): $(OBJ) $(LIBFT)
 	@$(CC) $(FLAGS) $(OBJ) $(LIBFT) -g3 -o $(NAME)
 	@echo -e "$(PURPLE_2)cub3d Compiled!$(RESET)"
 
-$(OBJ_DIR)%.o: %.c $(INCLUDE) Makefile | $(OBJF)
+$(OBJ_DIR)%.o: %.c $(OBJF)
 	@$(CC) $(FLAGS) -c -g3 $< -o $@
 
 $(LIBFT):

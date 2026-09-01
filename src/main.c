@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 11:29:08 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/01 11:54:18 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/01 16:05:03 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include <cub3d.h>
+
+struct s_cub cub = {0};
 
 int main()
 {
-    char    lol[3] = "ab";
-
-    printf("%s, %zu", lol, ft_strlen(lol));
+    ft_strlen(NULL);
+    return(cub.width);
 }
