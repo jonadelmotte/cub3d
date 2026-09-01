@@ -1,6 +1,6 @@
 NAME = cub3d
 
-FILES = pipi
+FILES = 
 
 SRC_DIR = src/
 OBJ_DIR = obj/
