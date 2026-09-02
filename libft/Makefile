@@ -6,13 +6,13 @@
 #    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/01 11:34:04 by jdelmott          #+#    #+#              #
-#    Updated: 2026/09/01 16:04:02 by sdabbas          ###   ########.fr        #
+#    Updated: 2026/09/02 15:08:56 by sdabbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-FILES = ft_bzero ft_calloc ft_strjoin ft_strlen ft_strncmp get_next_line ft_strchr \
+FILES = ft_bzero ft_calloc ft_strjoin ft_strlcpy ft_strlen ft_split ft_strjoin ft_strncmp ft_strdup get_next_line ft_strchr ft_is_space ft_strnstr \
 
 SRC_DIR = src/
 OBJ_DIR = obj/

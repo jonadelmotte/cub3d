@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 16:09:48 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/02 15:13:24 by sdabbas          ###   ########.fr       */
+/*   Created: 2026/09/02 14:41:18 by sdabbas           #+#    #+#             */
+/*   Updated: 2026/09/02 14:41:30 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strdup(const char *s)
 {
-	char	*new;
-	size_t	len_s1;
-	size_t	len_s2;
-	size_t	i;
+	char	*dest;
+	size_t	len_s;
 
-	i = 0;
-	if (!s1 || !s2)
+	len_s = ft_strlen(s);
+	dest = malloc(sizeof(char) * (len_s + 1));
+	if (!dest)
 		return (NULL);
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	new = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
-	if (!new)
-		return (NULL);
-	while (s1[i])
-	{
-		new[i] = s1[i];
-		i++;
-	}
-	while (s2[i - len_s1])
-	{
-		new[i] = s2[i - len_s1];
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
+	dest[len_s] = '\0';
+	while (len_s--)
+		dest[len_s] = s[len_s];
+	return (dest);
 }

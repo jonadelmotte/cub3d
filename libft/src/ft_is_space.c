@@ -1,42 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_is_space.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 16:09:48 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/02 15:13:24 by sdabbas          ###   ########.fr       */
+/*   Created: 2026/09/02 14:00:47 by sdabbas           #+#    #+#             */
+/*   Updated: 2026/09/02 14:02:46 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_is_space(char c)
 {
-	char	*new;
-	size_t	len_s1;
-	size_t	len_s2;
-	size_t	i;
-
-	i = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	new = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
-	if (!new)
-		return (NULL);
-	while (s1[i])
-	{
-		new[i] = s1[i];
-		i++;
-	}
-	while (s2[i - len_s1])
-	{
-		new[i] = s2[i - len_s1];
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
+	if (c == 32 || (c >= 9 && c <= 13))
+		return (1);
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:56:16 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/01 11:40:27 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/02 15:08:50 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,11 @@ size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
+int		ft_is_space(char c);
+char	*ft_strnstr(const char *big, const char *little, size_t n);
+char	*ft_strdup(const char *s);
+char	*renew(char *buffer, char *retu);
+char	**ft_split(const char *str, char sep);
+size_t	ft_strlcpy(char *dest, const char *src, size_t n);
 
 #endif

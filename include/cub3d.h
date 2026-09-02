@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/02 12:05:48 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/02 14:58:18 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ typedef struct s_data
 
 /* * * * * * * * * * * PARSING * * * * * * * * * * * * * */
 t_tools     init_null(void);
+char   	**read_file(int fd_file);
+int	open_file(char *argv);
+
 
 // GNL avec espace (remplir info des qu'on les croise)
 // si tt est rempli sinon error

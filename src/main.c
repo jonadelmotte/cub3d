@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 11:29:08 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/02 11:38:30 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/02 15:14:48 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int main()
 {
-    t_data data;
+    char    **tab;
 
-    data.tools = init_null();
+    tab = read_file(open_file("ha"));
+    for (int i = 0; tab[i]; i++)
+        printf("%s\n", tab[i]);
 }

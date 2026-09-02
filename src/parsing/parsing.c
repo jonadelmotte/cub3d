@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 15:49:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/02 12:22:39 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/02 15:15:06 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_tools	init_null(void)
 
 int	check_args(int argc, char *argv)
 {
-		int len;
+	int	len;
 
 	if (argc == 2)
 	{
@@ -40,47 +40,47 @@ int	check_args(int argc, char *argv)
 		}
 		return (0);
 	}
-    else
-        printf("Not the right amount of arguments\n");
-    return (1);
+	else
+		printf("Not the right amount of arguments\n");
+	return (1);
 }
 
-int open_file(char *argv)
+int	open_file(char *argv)
 {
-    int fd_file;
-    
-    fd_file = open(argv, O_RDONLY);
-    if (fd_file == -1)
-        return (printf("Error\nFile couldn't be opened\n"), 0);
-    return (fd_file);
+	int	fd_file;
+
+	fd_file = open(argv, O_RDONLY);
+	if (fd_file == -1)
+		return (printf("Error\nFile couldn't be opened\n"), 0);
+	return (fd_file);
 }
 
-int read_file(int fd_file)
+// int	parse_line(char *tmp, int *textures[6], int *lines)
+// {
+
+// }
+
+char   	**read_file(int fd_file)
 {
-    int     valid;
-    int textures;
-    int lines;
-    char    *tmp;
+	char	*tmp;
+    char    *join;
+    char    **final_tab;
 
-    lines = 0;
-    textures = 0;
-    valid = 0;
-    tmp = get_next_line(fd_file);
-    while (tmp != NULL && valid == 0)
-    {
-        //i = pars_line(tmp, &texture, &lines); 
-        free(tmp);
-        tmp = get_next_line(fd_file);
-    }
-    free(tmp);
-    if (textures < 6 || valid != 0)
-        return(0);
-    return (lines);
+    join = ft_calloc(0, 0);
+	tmp = get_next_line(fd_file);
+	while (tmp != NULL)
+	{
+        join = renew(tmp, join);
+		free(tmp);
+		tmp = get_next_line(fd_file);
+	}
+	free(tmp);        
+    final_tab = ft_split(join, '\n');
+    free(join);
+    return (final_tab);   
 }
 
-
-
-// NO                               ./path_to_the_north_texture
+//            NO              ./path_to_the_north_texture
 
 // F 220,100,0
 

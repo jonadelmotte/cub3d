@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 16:05:09 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/01 16:06:49 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/02 15:02:56 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define BUFFER_SIZE 11
 #endif
 
-static char	*renew(char *buffer, char *retu)
+char	*renew(char *buffer, char *retu)
 {
 	char	*temp;
 
