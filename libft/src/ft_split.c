@@ -6,18 +6,18 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 15:04:22 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/02 16:05:14 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/02 16:45:19 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	free_split(char **split, int count)
+int	free_split(char **split, int count)
 {
 	while (count--)
 		free(split[count]);
 	free(split);
-	exit(1);
+	return (1);
 }
 
 static int	count_words(const char *str, char c)
@@ -56,7 +56,7 @@ static char	**do_split(char **split, const char *str, char c)
 			j++;
 		split[words] = ft_calloc(sizeof(char), j + 1);
 		if (!split[words])
-			free_split(split, words);
+			return (free_split(split, words), NULL);
 		ft_strlcpy(split[words], (char *)&str[i], j + 1);
 		i += j;
 		words++;
