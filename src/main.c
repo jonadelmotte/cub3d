@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 11:29:08 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/01 16:05:03 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/02 11:38:30 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-struct s_cub cub = {0};
-
 int main()
 {
-    ft_strlen(NULL);
-    return(cub.width);
+    t_data data;
+
+    data.tools = init_null();
 }

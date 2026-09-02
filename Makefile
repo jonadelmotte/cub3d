@@ -1,6 +1,6 @@
 NAME = cub3d
 
-FILES = main
+FILES = main parsing
 
 SRC_DIR = src/
 OBJ_DIR = obj/

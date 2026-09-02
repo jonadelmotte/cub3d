@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/01 16:27:58 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/02 11:37:27 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,7 @@
 # define LEFT 65361
 # define RIGHT 65363
 
-typedef struct s_cub
-{
-	char	**map;
-	int		width;
-	int		height;
-}			t_cub;
-
-typedef struct s_lexer
+typedef struct s_tools
 {
     char    *NO;
     char    *SO;
@@ -44,7 +37,15 @@ typedef struct s_lexer
     char    *F;
     char    *C;
     char    **map;
-}           t_lexer;
+}           t_tools;
+
+typedef struct s_data
+{
+    t_tools tools;
+}			t_data;
+
+/* * * * * * * * * * * PARSING * * * * * * * * * * * * * */
+t_tools     init_null(void);
 
 //INIT A NULL : LEX
 // GNL avec espace (remplir info des qu'on les croise)
