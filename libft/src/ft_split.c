@@ -6,13 +6,13 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 15:04:22 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/02 15:04:31 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/02 16:05:14 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static void	free_split(char **split, int count)
+void	free_split(char **split, int count)
 {
 	while (count--)
 		free(split[count]);

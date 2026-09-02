@@ -6,15 +6,15 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/02 14:58:18 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/02 16:31:47 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include <libft.h>
 # include <fcntl.h>
+# include <libft.h>
 // # include "mlx.h"
 
 # define EMPTY_SPACE '0'
@@ -31,28 +31,27 @@
 
 typedef struct s_tools
 {
-    char    *NO;
-    char    *SO;
-    char    *WE;
-    char    *EA;
-    char    *F;
-    char    *C;
-    char    **map;
-}           t_tools;
+	char	*NO;
+	char	*SO;
+	char	*WE;
+	char	*EA;
+	char	*F;
+	char	*C;
+	char	**map;
+}			t_tools;
 
 typedef struct s_data
 {
-    t_tools tools;
+	t_tools	tools;
 }			t_data;
 
-/* * * * * * * * * * * PARSING * * * * * * * * * * * * * */
-t_tools     init_null(void);
-char   	**read_file(int fd_file);
-int	open_file(char *argv);
+/* * * * * * * * * * * LEXER * * * * * * * * * * * * * */
+t_tools		init_null(void);
+int			lex_line(char **final_tab, t_tools *tools);
 
-
-// GNL avec espace (remplir info des qu'on les croise)
-// si tt est rempli sinon error
-// parsing map
+/* * * * * * * * * * * * PARSING * * * * * * * * * * * */
+int			check_args(int argc, char *argv);
+char		**read_file(int fd_file);
+int			check_open(char *argv);
 
 #endif

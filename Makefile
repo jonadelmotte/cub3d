@@ -1,6 +1,6 @@
 NAME = cub3d
 
-FILES = main parsing
+FILES = main lexer open_file
 
 SRC_DIR = src/
 OBJ_DIR = obj/
@@ -32,7 +32,7 @@ RESET = \033[0;39
 $(OBJF):
 	@mkdir -p $(OBJ_DIR)
 
-vpath %.c $(SRC_DIR) $(SRC_DIR)/parsing 
+vpath %.c $(SRC_DIR)
 
 all: $(NAME)
 

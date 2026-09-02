@@ -1,12 +1,12 @@
-           NO              ./path_to_the_north_texture
-
+           NO kojiojoijio    ./path_to_the_north_texture        ./kjghrgg          
 F 220,100,0
 
-SO ./path_to_the_south_texture
+SO                ./path_to_the_south_texture
 WE ./path_to_the_west_texture
 EA ./path_to_the_east_texture
 
 C 225,30,0
+C 225,40,0
 
 11111111111
 10000000001111

@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:56:16 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/02 15:08:50 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/02 16:35:05 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ char	*ft_strdup(const char *s);
 char	*renew(char *buffer, char *retu);
 char	**ft_split(const char *str, char sep);
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);
+void	free_split(char **split, int count);
+char	**ft_split_dup(char **str);
 
 #endif
