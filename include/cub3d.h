@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/02 11:37:27 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/02 12:05:48 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 
 # include <libft.h>
+# include <fcntl.h>
 // # include "mlx.h"
 
 # define EMPTY_SPACE '0'
@@ -47,7 +48,6 @@ typedef struct s_data
 /* * * * * * * * * * * PARSING * * * * * * * * * * * * * */
 t_tools     init_null(void);
 
-//INIT A NULL : LEX
 // GNL avec espace (remplir info des qu'on les croise)
 // si tt est rempli sinon error
 // parsing map
