@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 15:49:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/02 16:46:32 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/03 14:13:45 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	check_open(char *argv)
 
 	fd_file = open(argv, O_RDONLY);
 	if (fd_file == -1)
-		return (printf("Error\nFile couldn't be opened\n"), 0);
+		return (printf(PINK "Error\nFile couldn't be opened\n" RESET), 0);
 	return (fd_file);
 }
 
