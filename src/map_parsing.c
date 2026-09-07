@@ -1,26 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/01 11:29:08 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/03 14:13:18 by jdelmott         ###   ########.fr       */
+/*   Created: 2026/09/03 14:23:34 by jdelmott          #+#    #+#             */
+/*   Updated: 2026/09/03 14:54:43 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-int main(int argc, char *argv[])
-{
-    t_tools tools;
-    int fd;
-    
-    (void)argc;
-    fd = check_open(argv[1]);
-    lex_line(read_file(fd), &tools);
-    printf(PINK "NO = %s\nSO = %s\nWE = %s\nEA = %s\nF = %s\nC = %s\n" RESET, tools.NO, tools.SO, tools.WE, tools.EA, tools.F, tools.C);
-    for (int i = 0; tools.map[i]; i++)
-        printf(PURPLE_1 "%s\n" RESET, tools.map[i]);
-}

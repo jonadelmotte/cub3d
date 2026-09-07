@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 15:49:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 15:08:21 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/07 15:12:00 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	check_open(char *argv)
 
 	fd_file = open(argv, O_RDONLY);
 	if (fd_file == -1)
-		return (printf("Error\nFile couldn't be opened\n"), 0);
+		return (printf(PINK "Error\nFile couldn't be opened\n" RESET), 0);
 	return (fd_file);
 }
 
@@ -41,7 +41,7 @@ char	**read_file(int fd_file)
 	final_tab = ft_split_keep(join, '\n');
 	printf("FINAL_TAB = \n");
 	for (int i = 0; final_tab[i]; i++)
-		printf(RED "|||" RESET "%s" GREEN "|||" RESET, final_tab[i]);
+		printf(PINK "|||" RESET "%s" PURPLE_1 "|||" RESET, final_tab[i]);
 	printf("END OF FINAL_TAB\n");
 	free(join);
 	return (final_tab);
