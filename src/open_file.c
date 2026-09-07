@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 15:49:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 15:12:00 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/07 15:25:17 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ char	**read_file(int fd_file)
 		tmp = get_next_line(fd_file);
 	}
 	free(tmp);
-	printf("JOIN = \n%s\nEND OF JOIN\n", join);
+	// printf("JOIN = \n%s\nEND OF JOIN\n", join);
 	final_tab = ft_split_keep(join, '\n');
 	printf("FINAL_TAB = \n");
 	for (int i = 0; final_tab[i]; i++)
-		printf(PINK "|||" RESET "%s" PURPLE_1 "|||" RESET, final_tab[i]);
+		printf(PINK "|||" RESET "%s" PURPLE_1 "|||\n" RESET, final_tab[i]);
 	printf("END OF FINAL_TAB\n");
+	// exit (127);
 	free(join);
 	return (final_tab);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 11:29:08 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/03 14:13:18 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/07 15:51:27 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int main(int argc, char *argv[])
     lex_line(read_file(fd), &tools);
     printf(PINK "NO = %s\nSO = %s\nWE = %s\nEA = %s\nF = %s\nC = %s\n" RESET, tools.NO, tools.SO, tools.WE, tools.EA, tools.F, tools.C);
     for (int i = 0; tools.map[i]; i++)
-        printf(PURPLE_1 "%s\n" RESET, tools.map[i]);
+        printf(PURPLE_1 "%s" RESET, tools.map[i]);
 }

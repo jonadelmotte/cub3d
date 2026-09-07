@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:24:47 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 15:10:58 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/07 15:50:46 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,18 @@ static int	fill_tools(t_tools *tools, char **texture)
 	return (0);
 }
 
+char	*test(char *lol)
+{
+	char	**split;
+	char	*retu;
+	
+	split = ft_split(lol, '\n');
+	free(lol);
+	retu = ft_strdup(split[0]);
+	free_split(split, 2);
+	return (retu);
+}
+
 int	lex_line(char **final_tab, t_tools *tools)
 {
 	int		i;
@@ -65,15 +77,22 @@ int	lex_line(char **final_tab, t_tools *tools)
 	i = 0;
 	while (final_tab[i] && is_empty(tools))
 	{
-		j = 0;
-		texture = ft_split(final_tab[i], ' ');
-		if (texture[0])
+		if (ft_strncmp(final_tab[i], "\n", ft_strlen(final_tab[i]) != 0))
 		{
-			while (texture && texture[j])
-				j++;
-			if (texture && (j != 2 || fill_tools(tools, texture) == 1))
-				return (free_split(texture, j), 1);
-			free_split(texture, j);
+			j = 0;
+			texture = ft_split(final_tab[i], ' ');
+			if (texture[0] && texture[0][0] != '\n')
+			{
+				if (texture[2] && texture[2][0] != '\n')
+					return (free_split(texture, j), 1);
+				else if (!texture[2])
+					texture[1] = test(texture[1]);
+				while (texture && texture[j])
+					j++;
+				if (texture && ((j < 2 && j > 3) || fill_tools(tools, texture) == 1))
+					return (free_split(texture, j), 1);
+				free_split(texture, j);
+			}
 		}
 		i++;
 	}
