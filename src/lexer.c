@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:24:47 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/02 16:49:42 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/07 14:27:04 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,14 @@ int	lex_line(char **final_tab, t_tools *tools)
 	{
 		j = 0;
 		texture = ft_split(final_tab[i], ' ');
-		while (texture[j])
-			j++;
-		if (j != 2 || fill_tools(tools, texture) == 1)
-			return (free_split(texture, j), 1);
-		free_split(texture, j);
+		if (texture[0])
+		{
+			while (texture && texture[j])
+				j++;
+			if (texture && (j != 2 || fill_tools(tools, texture) == 1))
+				return (free_split(texture, j), 1);
+			free_split(texture, j);
+		}
 		i++;
 	}
 	tools->map = ft_split_dup(&final_tab[i]);

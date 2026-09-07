@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_keep.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/02 15:04:22 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 14:50:28 by sdabbas          ###   ########.fr       */
+/*   Created: 2026/09/07 14:35:37 by sdabbas           #+#    #+#             */
+/*   Updated: 2026/09/07 15:07:27 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-
-int	free_split(char **split, int count)
-{
-	if (split)
-	{
-		while (count--)
-		{
-			if (split[count])
-				free(split[count]);
-		}
-		free(split);
-	}
-	return (1);
-}
 
 static int	count_words(const char *str, char c)
 {
@@ -35,13 +21,14 @@ static int	count_words(const char *str, char c)
 	count = 0;
 	while (str[i])
 	{
-		while (str[i] == c && str[i])
+		if (str[i] == c && str[i])
+		{
 			i++;
-		if (str[i])
 			count++;
+		}
 		while (str[i] != c && str[i])
 			i++;
-	}	
+	}
 	return (count);
 }
 
@@ -56,8 +43,11 @@ static char	**do_split(char **split, const char *str, char c)
 	while (str[i])
 	{
 		j = 0;
-		while (str[i] == c && str[i])
+		if (str[i] == c && str[i])
+		{
 			i++;
+			j++;
+		}
 		while (str[i + j] != c && str[i + j])
 			j++;
 		split[words] = ft_calloc(sizeof(char), j + 1);
@@ -73,7 +63,7 @@ static char	**do_split(char **split, const char *str, char c)
 	return (split);
 }
 
-char	**ft_split(const char *str, char sep)
+char	**ft_split_keep(const char *str, char sep)
 {
 	char	**split;
 	int		words;
