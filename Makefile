@@ -20,7 +20,9 @@ OBJ_DIR = obj/
 CC = cc
 INCLUDE = include
 
+
 FLAGS = -Wall -Wextra -Werror -lm -g -I$(INCLUDE)
+FLAGSMAC = -Wall -Wextra -Werror -g -I$(INCLUDE)
 
 SRC = $(addprefix $(SRC_DIR), $(addsuffix .c), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
@@ -49,11 +51,11 @@ vpath %.c $(SRC_DIR)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	@$(CC) $(FLAGS) $(OBJ) $(LIBFT) -g3 -o $(NAME)
+	@$(CC) $(FLAGSMAC) $(OBJ) $(LIBFT) -g3 -o $(NAME)
 	@echo -e "$(PURPLE_2)cub3d Compiled!$(RESET)"
 
 $(OBJ_DIR)%.o: %.c $(OBJF)
-	@$(CC) $(FLAGS) -c -g3 $< -o $@
+	@$(CC) $(FLAGSMAC) -c -g3 $< -o $@
 
 $(LIBFT):
 	@echo -e "$(PURPLE_1)Entering directory 'libft'$(RESET)"

@@ -62,7 +62,7 @@ static char	*rm_newline(char *str)
 	char	*retu;
 	
 	split = ft_split(str, '\n');
-	free(lol);
+	free(str);
 	retu = ft_strdup(split[0]);
 	free_split(split, 2);
 	return (retu);
@@ -81,7 +81,7 @@ static int	get_tools(t_tools *tools, char **texture)
 			texture[1] = rm_newline(texture[1]);
 		while (texture && texture[j])
 			j++;
-		if (texture && ((j < 2 && j > 3) || fill_tools(tools, texture) == 1))
+		if (texture && ((j != 2 && j != 3) || fill_tools(tools, texture) == 1))
 			return (free_split(texture, j), 1);
 		free_split(texture, j);
 	}
