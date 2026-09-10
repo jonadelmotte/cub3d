@@ -12,7 +12,7 @@
 
 NAME = cub3d
 
-FILES = main lexer open_file
+FILES = main lexer open_file map_parsing free_all parsing \
 
 SRC_DIR = src/
 OBJ_DIR = obj/

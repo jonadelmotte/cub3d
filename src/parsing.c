@@ -44,7 +44,7 @@ int	check_char(t_tools *tools)
 		{
 			if (tools->map[i][y] != 'N' && tools->map[i][y] != 'W'
 				&& tools->map[i][y] != 'S' && tools->map[i][y] != 'E'
-				&& tools->map[i][y] != EMPTY_SPACE && tools->map[i][y] != WALL)
+				&& tools->map[i][y] != FLOOR && tools->map[i][y] != WALL)
 			{
 				printf(PINK "Error\nThere is an unauthorized character\n" RESET);
 				return (1);
@@ -70,6 +70,7 @@ int	check_elements(t_data *data, int x, int y, int start_position)
 				data->player.pos_x = x;
 				data->player.pos_y = y;
 				data->player.starting_pos = data->tools.map[y][x];
+				data->tools.map[y][x] = FLOOR;
 			}
 			x++;
 		}

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_dup.c                                     :+:      :+:    :+:   */
+/*   ft_tab_dup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -24,7 +24,7 @@ static size_t	ft_splitlen(char **str)
 	return (i);
 }
 
-char	**ft_split_dup(char **str)
+char	**ft_tab_dup(char **str)
 {
 	int		i;
 	char	**cpy;

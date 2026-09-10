@@ -39,5 +39,6 @@ char	**read_file(int fd_file)
 	free(tmp);
 	final_tab = ft_split_keep(join, '\n');
 	free(join);
+	close(fd_file);
 	return (final_tab);
 }

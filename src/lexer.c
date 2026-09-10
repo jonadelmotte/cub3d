@@ -52,7 +52,7 @@ static int	fill_tools(t_tools *tools, char **texture)
 	else if (ft_strncmp(texture[0], "C", len) == 0 && tools->C == NULL)
 		tools->C = ft_strdup(texture[1]);
 	else
-		return (1);
+		return (printf("kiki\n"), 1);
 	return (0);
 }
 
@@ -75,7 +75,7 @@ static int	get_tools(t_tools *tools, char **texture)
 	j = 0;
 	if (texture[0] && texture[0][0] != '\n')
 	{
-		if (texture[2] && texture[2][0] != '\n')
+		if (texture && texture[0] && texture[1] && texture[2] && texture[2][0] && texture[2][0] != '\n')
 			return (free_split(texture, j), 1);
 		else if (!texture[2])
 			texture[1] = rm_newline(texture[1]);
@@ -94,7 +94,7 @@ int	lex_line(char **final_tab, t_tools *tools)
 	char	**texture;
 
 	i = 0;
-	while (final_tab[i] && is_empty(tools))
+	while (final_tab && final_tab[i] && is_empty(tools))
 	{
 		if (ft_strncmp(final_tab[i], "\n", ft_strlen(final_tab[i]) != 0))
 		{
@@ -104,7 +104,7 @@ int	lex_line(char **final_tab, t_tools *tools)
 		}
 		i++;
 	}
-	tools->map = ft_split_dup(&final_tab[i]);
+	tools->map = ft_tab_dup(&final_tab[i]);
 	while (final_tab[i])
 		i++;
 	free_split(final_tab, i);

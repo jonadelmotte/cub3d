@@ -17,7 +17,7 @@
 # include <libft.h>
 // # include "mlx.h"
 
-# define EMPTY_SPACE '0'
+# define FLOOR '0'
 # define WALL '1'
 # define ESC 65307
 # define KEY_W 119
@@ -58,6 +58,9 @@ typedef struct s_data
 	t_player	player;
 }				t_data;
 
+/* * * * * * * * * * * * FREE * * * * * * * * * * * * * */
+void free_tools(t_tools *tools);
+
 /* * * * * * * * * * * LEXER * * * * * * * * * * * * * */
 t_tools			init_null(void);
 int				lex_line(char **final_tab, t_tools *tools);
@@ -68,5 +71,17 @@ char			**read_file(int fd_file);
 int				check_open(char *argv);
 int				check_char(t_tools *tools);
 int				check_elements(t_data *data, int x, int y, int start_position);
+
+char **final_map(char **map);
+int check_empty_line(char **empty);
+int check_sides(char **map);
+
+//quand :
+//     NO       ./path_to_the_north_texture
+
+// F 220,100,0
+//             NO      ./path_to_toooooohe_north_texture
+
+// PARFOIS ERREUR
 
 #endif

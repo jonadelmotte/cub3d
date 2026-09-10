@@ -12,7 +12,7 @@
 
 NAME = libft.a
 
-FILES = ft_bzero ft_calloc ft_strjoin ft_strlcpy ft_split_dup ft_strlen ft_split \
+FILES = ft_bzero ft_calloc ft_strjoin ft_strlcpy ft_tab_dup ft_strlen ft_split \
 		ft_strjoin ft_strncmp ft_strdup get_next_line ft_split_keep ft_strchr \
 		ft_is_space ft_strnstr \
 

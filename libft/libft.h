@@ -32,7 +32,7 @@ char	*renew(char *buffer, char *retu);
 char	**ft_split(const char *str, char sep);
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);
 int     free_split(char **split, int count);
-char	**ft_split_dup(char **str);
+char	**ft_tab_dup(char **str);
 char	**ft_split_keep(const char *str, char sep);
 
 #endif
