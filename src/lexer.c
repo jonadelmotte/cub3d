@@ -56,22 +56,41 @@ static int	fill_tools(t_tools *tools, char **texture)
 	return (0);
 }
 
-char	*test(char *lol)
+static char	*rm_newline(char *str)
 {
 	char	**split;
 	char	*retu;
 	
-	split = ft_split(lol, '\n');
+	split = ft_split(str, '\n');
 	free(lol);
 	retu = ft_strdup(split[0]);
 	free_split(split, 2);
 	return (retu);
 }
 
+static int	get_tools(t_tools *tools, char **texture)
+{
+	int j;
+
+	j = 0;
+	if (texture[0] && texture[0][0] != '\n')
+	{
+		if (texture[2] && texture[2][0] != '\n')
+			return (free_split(texture, j), 1);
+		else if (!texture[2])
+			texture[1] = rm_newline(texture[1]);
+		while (texture && texture[j])
+			j++;
+		if (texture && ((j < 2 && j > 3) || fill_tools(tools, texture) == 1))
+			return (free_split(texture, j), 1);
+		free_split(texture, j);
+	}
+	return (0);
+}
+
 int	lex_line(char **final_tab, t_tools *tools)
 {
 	int		i;
-	int		j;
 	char	**texture;
 
 	i = 0;
@@ -79,20 +98,8 @@ int	lex_line(char **final_tab, t_tools *tools)
 	{
 		if (ft_strncmp(final_tab[i], "\n", ft_strlen(final_tab[i]) != 0))
 		{
-			j = 0;
 			texture = ft_split(final_tab[i], ' ');
-			if (texture[0] && texture[0][0] != '\n')
-			{
-				if (texture[2] && texture[2][0] != '\n')
-					return (free_split(texture, j), 1);
-				else if (!texture[2])
-					texture[1] = test(texture[1]);
-				while (texture && texture[j])
-					j++;
-				if (texture && ((j < 2 && j > 3) || fill_tools(tools, texture) == 1))
-					return (free_split(texture, j), 1);
-				free_split(texture, j);
-			}
+			get_tools(tools, texture);
 		}
 		i++;
 	}
