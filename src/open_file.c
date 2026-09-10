@@ -37,13 +37,7 @@ char	**read_file(int fd_file)
 		tmp = get_next_line(fd_file);
 	}
 	free(tmp);
-	// printf("JOIN = \n%s\nEND OF JOIN\n", join);
 	final_tab = ft_split_keep(join, '\n');
-	printf("FINAL_TAB = \n");
-	for (int i = 0; final_tab[i]; i++)
-		printf(PINK "|||" RESET "%s" PURPLE_1 "|||\n" RESET, final_tab[i]);
-	printf("END OF FINAL_TAB\n");
-	// exit (127);
 	free(join);
 	return (final_tab);
 }

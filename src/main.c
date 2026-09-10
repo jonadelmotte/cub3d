@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     int fd;
     
     (void)argc;
+    tools = init_null();
     fd = check_open(argv[1]);
     lex_line(read_file(fd), &tools);
     printf(PINK "NO = %s\nSO = %s\nWE = %s\nEA = %s\nF = %s\nC = %s\n" RESET, tools.NO, tools.SO, tools.WE, tools.EA, tools.F, tools.C);

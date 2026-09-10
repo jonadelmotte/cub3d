@@ -99,7 +99,8 @@ int	lex_line(char **final_tab, t_tools *tools)
 		if (ft_strncmp(final_tab[i], "\n", ft_strlen(final_tab[i]) != 0))
 		{
 			texture = ft_split(final_tab[i], ' ');
-			get_tools(tools, texture);
+			if (get_tools(tools, texture) != 0)
+				return (1);
 		}
 		i++;
 	}
@@ -109,4 +110,3 @@ int	lex_line(char **final_tab, t_tools *tools)
 	free_split(final_tab, i);
 	return (0);
 }
-
