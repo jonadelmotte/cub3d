@@ -34,5 +34,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n);
 int     free_split(char **split, int count);
 char	**ft_tab_dup(char **str);
 char	**ft_split_keep(const char *str, char sep);
+char	*ft_join_one(char const *s, char const c);
+char	*ft_renew_one(char *start, char end);
 
 #endif
