@@ -56,7 +56,7 @@ static int	fill_tools(t_tools *tools, char **texture)
 	return (0);
 }
 
-static char	*rm_newline(char *str)
+char	*rm_newline(char *str)
 {
 	char	**split;
 	char	*retu;

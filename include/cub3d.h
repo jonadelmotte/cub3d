@@ -76,6 +76,11 @@ char **final_map(char **map);
 int check_empty_line(char **empty);
 int check_sides(char **map);
 
+char    **big_map(char **map);
+char	*rm_newline(char *str);
+
+int    new_test(char **map);
+
 //quand :
 //     NO       ./path_to_the_north_texture
 
