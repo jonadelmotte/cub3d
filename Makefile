@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+         #
+#    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/03 14:15:13 by jdelmott          #+#    #+#              #
-#    Updated: 2026/09/03 14:15:14 by jdelmott         ###   ########.fr        #
+#    Updated: 2026/09/14 15:22:52 by sdabbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ BLUE = \033[0;34m
 PINK = \033[38;5;169m
 PURPLE_1 = \033[38;5;181m
 PURPLE_2 = \033[38;5;161m
-RESET = \033[0;39
+RESET = \033[0;39m
 
 $(OBJF):
 	@mkdir -p $(OBJ_DIR)
