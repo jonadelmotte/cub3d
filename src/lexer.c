@@ -6,25 +6,11 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:24:47 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 15:50:46 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/14 16:56:44 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
-
-t_tools	init_null(void)
-{
-	t_tools	tools;
-
-	tools.NO = NULL;
-	tools.SO = NULL;
-	tools.WE = NULL;
-	tools.EA = NULL;
-	tools.F = NULL;
-	tools.C = NULL;
-	tools.map = NULL;
-	return (tools);
-}
 
 static int is_empty(t_tools *tools)
 {
@@ -52,20 +38,8 @@ static int	fill_tools(t_tools *tools, char **texture)
 	else if (ft_strncmp(texture[0], "C", len) == 0 && tools->C == NULL)
 		tools->C = ft_strdup(texture[1]);
 	else
-		return (printf("kiki\n"), 1);
+		return (printf("error: not the right element/format\n"), 1);
 	return (0);
-}
-
-char	*rm_newline(char *str)
-{
-	char	**split;
-	char	*retu;
-	
-	split = ft_split(str, '\n');
-	free(str);
-	retu = ft_strdup(split[0]);
-	free_split(split, 2);
-	return (retu);
 }
 
 static int	get_tools(t_tools *tools, char **texture)

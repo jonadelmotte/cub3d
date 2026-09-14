@@ -17,8 +17,10 @@ void free_tools(t_tools *tools)
         free(tools->F);
     if (tools->C)
         free(tools->C);
-    while (tools->map[i])
-        i++;
     if (tools->map)
+    {
+        while (tools->map[i])
+            i++;
         free_split(tools->map, i);
+    }
 }

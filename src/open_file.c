@@ -6,23 +6,23 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 15:49:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 15:25:17 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/14 16:58:06 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-int	check_open(char *argv)
+static int	check_open(char *argv)
 {
 	int	fd_file;
 
 	fd_file = open(argv, O_RDONLY);
 	if (fd_file == -1)
-		return (printf(PINK "Error\nFile couldn't be opened\n" RESET), 0);
+		return (printf(PINK "Error\nFile couldn't be opened\n" RESET), -1);
 	return (fd_file);
 }
 
-char	**read_file(int fd_file)
+static char	**read_file(int fd_file)
 {
 	char	*tmp;
 	char	*join;
@@ -41,4 +41,21 @@ char	**read_file(int fd_file)
 	free(join);
 	close(fd_file);
 	return (final_tab);
+}
+
+int	final_lexer(t_data *data, char *argv)
+{
+	char	**tmp;
+	int	fd;
+	
+	fd = check_open(argv);
+	if (fd == - 1)
+		return (1);
+	tmp = read_file(fd);
+	if (tmp == NULL)
+		return (close(fd), 1);
+	if (lex_line(tmp, &data->tools) == 1)
+		return (1);
+	close (fd);
+	return (0);
 }

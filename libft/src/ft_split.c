@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 15:04:22 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 14:50:28 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/14 17:35:55 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 int	free_split(char **split, int count)
 {
-	if (split)
+	if (count > 0)
 	{
-		while (count--)
+		if (split)
 		{
-			if (split[count])
-				free(split[count]);
+			while (count--)
+			{
+				if (split[count])
+					free(split[count]);
+			}
+			free(split);
 		}
-		free(split);
 	}
 	return (1);
 }

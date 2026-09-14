@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:30:28 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/03 14:54:50 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/14 18:02:53 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	check_char(t_tools *tools)
 		{
 			if (tools->map[i][y] != 'N' && tools->map[i][y] != 'W'
 				&& tools->map[i][y] != 'S' && tools->map[i][y] != 'E'
-				&& tools->map[i][y] != FLOOR && tools->map[i][y] != WALL)
+				&& tools->map[i][y] != FLOOR && tools->map[i][y] != WALL
+				&& ft_is_space(tools->map[i][y]) != 1)
 			{
 				printf(PINK "Error\nThere is an unauthorized character\n" RESET);
 				return (1);
@@ -77,9 +78,27 @@ int	check_elements(t_data *data, int x, int y, int start_position)
 		y++;
 	}
 	if (start_position != 1)
-    {
-        printf(PINK "Error\nNot the correct amount of elements\n" RESET);
+	{
+		printf(PINK "Error\nNot the correct amount of elements\n" RESET);
 		return (1);
-    }
+	}
+	return (0);
+}
+
+int	resolve_parsing(t_data *data, int argc, char *argv)
+{
+	data->tools = init_null();
+	if (check_args(argc, argv) == 1)
+		return (1);
+	if (final_lexer(data, argv) == 1)//faire des testes a partir d'ici (ex = fichier vide)
+		return (1);
+	if (final_map(&data->tools) == 1)
+		return (1);
+	if (check_char(&data->tools) == 1)
+		return (1);
+	if (check_elements(data, 0, 0, 0) == 1)
+		return (1);
+	if (verif_map(data->tools.map) == 1)
+		return (1);
 	return (0);
 }

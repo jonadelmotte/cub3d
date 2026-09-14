@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/03 14:55:18 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/14 17:51:31 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,34 +59,22 @@ typedef struct s_data
 }				t_data;
 
 /* * * * * * * * * * * * FREE * * * * * * * * * * * * * */
-void free_tools(t_tools *tools);
+void			free_tools(t_tools *tools);
 
 /* * * * * * * * * * * LEXER * * * * * * * * * * * * * */
 t_tools			init_null(void);
 int				lex_line(char **final_tab, t_tools *tools);
+int				final_lexer(t_data *data, char *argv);
+int				final_map(t_tools *tools);
+char			*rm_newline(char *str);
 
 /* * * * * * * * * * * * PARSING * * * * * * * * * * * */
 int				check_args(int argc, char *argv);
-char			**read_file(int fd_file);
-int				check_open(char *argv);
 int				check_char(t_tools *tools);
 int				check_elements(t_data *data, int x, int y, int start_position);
+int				verif_map(char **map);
+int	resolve_parsing(t_data *data, int argc, char *argv);
 
-char **final_map(char **map);
-int check_empty_line(char **empty);
-int check_sides(char **map);
-
-char    **big_map(char **map);
-char	*rm_newline(char *str);
-
-int    new_test(char **map);
-
-//quand :
-//     NO       ./path_to_the_north_texture
-
-// F 220,100,0
-//             NO      ./path_to_toooooohe_north_texture
-
-// PARFOIS ERREUR
+// verifier la derniere ligne;
 
 #endif
