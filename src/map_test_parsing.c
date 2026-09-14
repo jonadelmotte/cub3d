@@ -59,25 +59,32 @@ char    **big_map(char **map)
     return (new);
 }
 
+int    is_floor(char **map, int line, int i)
+{
+    if (line >= 0 && i >= 0 && map[line] && map[line][i] && map[line][i] == FLOOR)
+        return (1);
+    return (0);
+}
+
 int    truc(char **map, int line, int i)
 {
     if (map[line][i] && ft_is_space(map[line][i]) == 1)
     {
-        if (line > 0 && map[line - 1][i] && map[line - 1][i] == FLOOR)
+        if (is_floor(map, line - 1, i) == 1)
             return (1);
-        if (line > 0 && i > 0 && map[line - 1][i - 1] && map[line - 1][i - 1] == FLOOR)
+        if (is_floor(map, line - 1, i - 1) == 1)
             return (1);
-        if (line > 0 && map[line - 1][i + 1] && map[line - 1][i + 1] == FLOOR)
+        if (is_floor(map, line - 1, i + 1) == 1)
             return (1);
-        if (i > 0 && map[line][i - 1] && map[line][i - 1] == FLOOR)
+        if (is_floor(map, line, i - 1) == 1)
             return (1);
-        if (map[line][i + 1] && map[line][i + 1] == FLOOR)
+        if (is_floor(map, line, i + 1) == 1)
             return (1);
-        if (map[line + 1] && map[line + 1][i] && map[line + 1][i] == FLOOR)
+        if (is_floor(map, line + 1, i) == 1)
             return (1);
-        if (i > 0 && map[line + 1] && map[line + 1][i - 1] && map[line + 1][i - 1] == FLOOR)
+        if (is_floor(map, line + 1, i - 1) == 1)
             return (1);
-        if (map[line + 1] && map[line + 1][i + 1] && map[line + 1][i + 1] == FLOOR)
+        if (is_floor(map, line + 1, i + 1) == 1)
             return (1);
     }
     return (0);
