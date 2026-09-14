@@ -102,7 +102,7 @@ int    new_test(char **map)
         while (map[line][i])
         {
             if (truc(map, line, i) == 1)
-                return (1);
+                return (printf("%s\n\n", map[line]), 1);
             i++;
         }
         line++;
