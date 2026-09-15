@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:24:47 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/14 16:56:44 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 12:11:13 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,10 @@ int	lex_line(char **final_tab, t_tools *tools)
 		i++;
 	}
 	tools->map = ft_tab_dup(&final_tab[i]);
-	while (final_tab[i])
+	while (final_tab && final_tab[i])
 		i++;
+	if (i == 0)
+		return (1);
 	free_split(final_tab, i);
 	return (0);
 }
