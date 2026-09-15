@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:30:28 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/14 18:02:53 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 15:10:08 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	resolve_parsing(t_data *data, int argc, char *argv)
 	data->tools = init_null();
 	if (check_args(argc, argv) == 1)
 		return (1);
-	if (final_lexer(data, argv) == 1)//faire des testes a partir d'ici (ex = fichier vide)
+	if (final_lexer(data, argv) == 1)
 		return (1);
 	if (final_map(&data->tools) == 1)
 		return (1);

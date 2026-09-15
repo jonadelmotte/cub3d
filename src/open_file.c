@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 15:49:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/15 12:05:56 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 16:18:44 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static char	**read_file(int fd_file)
 	char	*join;
 	char	**final_tab;
 
-	join = ft_calloc(0, 0);
+	join = ft_calloc(1, 1);
+	join[0] = '\0';
 	tmp = get_next_line(fd_file);
 	while (tmp != NULL)
 	{
@@ -39,23 +40,22 @@ static char	**read_file(int fd_file)
 	free(tmp);
 	final_tab = ft_split_keep(join, '\n');
 	free(join);
-	close(fd_file);
 	return (final_tab);
 }
 
 int	final_lexer(t_data *data, char *argv)
 {
 	char	**tmp;
-	int	fd;
-	
+	int		fd;
+
 	fd = check_open(argv);
-	if (fd == - 1)
+	if (fd == -1)
 		return (1);
 	tmp = read_file(fd);
 	if (tmp == NULL)
 		return (close(fd), 1);
 	if (lex_line(tmp, &data->tools) == 1)
 		return (1);
-	close (fd);
+	close(fd);
 	return (0);
 }

@@ -36,7 +36,7 @@ static int	verif_newline_map(t_tools *tools)
 	temp = ft_tab_dup(&tools->map[i]);
 	if (temp == NULL)
 		return (1);
-	free_split(tools->map, i);
+	free_split(tools->map, i + j);
 	tools->map = ft_tab_dup(temp);
 	if (tools->map == NULL)
 		return (free_split(temp, j), 1);
@@ -45,6 +45,7 @@ static int	verif_newline_map(t_tools *tools)
 		return (1);
 	return (0);
 }
+
 static size_t	biggest_line(char **map)
 {
 	size_t	biggest;
@@ -66,7 +67,7 @@ static size_t	biggest_line(char **map)
 	return (biggest);
 }
 
-int		final_map(t_tools *tools)
+int	final_map(t_tools *tools)
 {
 	size_t	biggest;
 	size_t	line;
@@ -92,4 +93,3 @@ int		final_map(t_tools *tools)
 	}
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 15:04:22 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/15 12:12:18 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 16:43:39 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ int	free_split(char **split, int count)
 				if (split[count])
 					free(split[count]);
 			}
-			free(split);
 		}
 	}
+	if (split != NULL)	
+		free(split);
 	return (1);
 }
 

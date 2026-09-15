@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 14:35:37 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 15:39:32 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 16:39:01 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ static int	count_words(const char *str, char c)
 			i++;
 			count++;
 		}
-		while (str[i] != c && str[i])
+		while (str[i] && str[i] != c)
 			i++;
 	}
+	if (str[i] != c)
+		count++;
 	return (count);
 }
 
@@ -44,9 +46,9 @@ static char	**do_split(char **split, const char *str, char c)
 	{
 		j = 0;
 
-		while (str[i + j] != c && str[i + j])
+		while (str[i + j] && str[i + j] != c)
 			j++;
-		if (str[i + j] == c && str[i + j])
+		if (str[i + j] && str[i + j] == c)
 			j++;
 		split[words] = ft_calloc(sizeof(char), j + 1);
 		if (!split[words])

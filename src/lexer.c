@@ -6,13 +6,13 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:24:47 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/15 12:11:13 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 15:23:05 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-static int is_empty(t_tools *tools)
+static int	is_empty(t_tools *tools)
 {
 	if (tools->C == NULL || tools->F == NULL || tools->NO == NULL
 		|| tools->SO == NULL || tools->EA == NULL || tools->WE == NULL)
@@ -44,12 +44,13 @@ static int	fill_tools(t_tools *tools, char **texture)
 
 static int	get_tools(t_tools *tools, char **texture)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	if (texture[0] && texture[0][0] != '\n')
 	{
-		if (texture && texture[0] && texture[1] && texture[2] && texture[2][0] && texture[2][0] != '\n')
+		if (texture && texture[0] && texture[1] && texture[2] && texture[2][0]
+			&& texture[2][0] != '\n')
 			return (free_split(texture, j), 1);
 		else if (!texture[2])
 			texture[1] = rm_newline(texture[1]);
@@ -81,8 +82,8 @@ int	lex_line(char **final_tab, t_tools *tools)
 	tools->map = ft_tab_dup(&final_tab[i]);
 	while (final_tab && final_tab[i])
 		i++;
+	free_split(final_tab, i);
 	if (i == 0)
 		return (1);
-	free_split(final_tab, i);
 	return (0);
 }
