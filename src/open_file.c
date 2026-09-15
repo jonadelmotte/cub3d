@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 15:49:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/15 16:18:44 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 16:54:26 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	final_lexer(t_data *data, char *argv)
 	if (tmp == NULL)
 		return (close(fd), 1);
 	if (lex_line(tmp, &data->tools) == 1)
-		return (1);
+		return (close(fd), 1);
 	close(fd);
 	return (0);
 }
