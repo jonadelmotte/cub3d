@@ -6,27 +6,13 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:24:47 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 15:50:46 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 16:59:28 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-t_tools	init_null(void)
-{
-	t_tools	tools;
-
-	tools.NO = NULL;
-	tools.SO = NULL;
-	tools.WE = NULL;
-	tools.EA = NULL;
-	tools.F = NULL;
-	tools.C = NULL;
-	tools.map = NULL;
-	return (tools);
-}
-
-static int is_empty(t_tools *tools)
+static int	is_empty(t_tools *tools)
 {
 	if (tools->C == NULL || tools->F == NULL || tools->NO == NULL
 		|| tools->SO == NULL || tools->EA == NULL || tools->WE == NULL)
@@ -52,30 +38,19 @@ static int	fill_tools(t_tools *tools, char **texture)
 	else if (ft_strncmp(texture[0], "C", len) == 0 && tools->C == NULL)
 		tools->C = ft_strdup(texture[1]);
 	else
-		return (printf("kiki\n"), 1);
+		return (printf("error: not the right element/format\n"), 1);
 	return (0);
-}
-
-char	*rm_newline(char *str)
-{
-	char	**split;
-	char	*retu;
-	
-	split = ft_split(str, '\n');
-	free(str);
-	retu = ft_strdup(split[0]);
-	free_split(split, 2);
-	return (retu);
 }
 
 static int	get_tools(t_tools *tools, char **texture)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	if (texture[0] && texture[0][0] != '\n')
 	{
-		if (texture && texture[0] && texture[1] && texture[2] && texture[2][0] && texture[2][0] != '\n')
+		if (texture && texture[0] && texture[1] && texture[2] && texture[2][0]
+			&& texture[2][0] != '\n')
 			return (free_split(texture, j), 1);
 		else if (!texture[2])
 			texture[1] = rm_newline(texture[1]);
@@ -87,26 +62,31 @@ static int	get_tools(t_tools *tools, char **texture)
 	}
 	return (0);
 }
+// ici pb si pas ts les elements
 
 int	lex_line(char **final_tab, t_tools *tools)
 {
 	int		i;
+	int		len;
 	char	**texture;
 
 	i = 0;
+	len = 0;	
+	while (final_tab && final_tab[len])
+		len++;
 	while (final_tab && final_tab[i] && is_empty(tools))
 	{
 		if (ft_strncmp(final_tab[i], "\n", ft_strlen(final_tab[i]) != 0))
 		{
 			texture = ft_split(final_tab[i], ' ');
 			if (get_tools(tools, texture) != 0)
-				return (1);
+				return (free_split(final_tab, len), 1);
 		}
 		i++;
 	}
 	tools->map = ft_tab_dup(&final_tab[i]);
-	while (final_tab[i])
-		i++;
-	free_split(final_tab, i);
+	free_split(final_tab, len);
+	if (i == 0)
+		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 16:05:09 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/02 15:02:56 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 16:18:54 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,13 @@ char	*renew(char *buffer, char *retu)
 {
 	char	*temp;
 
-	return (temp = ft_strjoin(retu, buffer), free(retu), temp);
+	if (retu[0] != '\0')
+		temp = ft_strjoin(retu, buffer);
+	else
+		temp = ft_strdup(buffer);
+	if (retu)
+		free(retu);
+	return (temp);
 }
 
 static char	*line(char *buffer)

@@ -6,29 +6,30 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 15:49:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/07 15:25:17 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/15 16:54:26 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-int	check_open(char *argv)
+static int	check_open(char *argv)
 {
 	int	fd_file;
 
 	fd_file = open(argv, O_RDONLY);
 	if (fd_file == -1)
-		return (printf(PINK "Error\nFile couldn't be opened\n" RESET), 0);
+		return (printf(PINK "Error\nFile couldn't be opened\n" RESET), -1);
 	return (fd_file);
 }
 
-char	**read_file(int fd_file)
+static char	**read_file(int fd_file)
 {
 	char	*tmp;
 	char	*join;
 	char	**final_tab;
 
-	join = ft_calloc(0, 0);
+	join = ft_calloc(1, 1);
+	join[0] = '\0';
 	tmp = get_next_line(fd_file);
 	while (tmp != NULL)
 	{
@@ -39,6 +40,22 @@ char	**read_file(int fd_file)
 	free(tmp);
 	final_tab = ft_split_keep(join, '\n');
 	free(join);
-	close(fd_file);
 	return (final_tab);
+}
+
+int	final_lexer(t_data *data, char *argv)
+{
+	char	**tmp;
+	int		fd;
+
+	fd = check_open(argv);
+	if (fd == -1)
+		return (1);
+	tmp = read_file(fd);
+	if (tmp == NULL)
+		return (close(fd), 1);
+	if (lex_line(tmp, &data->tools) == 1)
+		return (close(fd), 1);
+	close(fd);
+	return (0);
 }
