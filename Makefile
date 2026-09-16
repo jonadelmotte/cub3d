@@ -12,7 +12,7 @@
 
 NAME = cub3d
 
-FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils\
+FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils check_sides \
 
 SRC_DIR = src/
 OBJ_DIR = obj/
@@ -46,18 +46,18 @@ RESET = \033[0;39m
 $(OBJF):
 	@mkdir -p $(OBJ_DIR)
 
-vpath %.c $(SRC_DIR)
+vpath %.c $(SRC_DIR) $(SRC_DIR)lexer_parser
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
+$(NAME): $(OBJ) make_libft
 	@$(CC) $(FLAGSMAC) $(OBJ) $(LIBFT) -g3 -o $(NAME)
 	@echo -e "$(PURPLE_2)cub3d Compiled!$(RESET)"
 
 $(OBJ_DIR)%.o: %.c $(OBJF)
 	@$(CC) $(FLAGSMAC) -c -g3 $< -o $@
 
-$(LIBFT):
+make_libft :
 	@echo -e "$(PURPLE_1)Entering directory 'libft'$(RESET)"
 	@make --no-print-directory -C $(LIBFT_DIR)
 	@echo -e "$(PURPLE_1)Leaving directory 'libft'$(RESET)"

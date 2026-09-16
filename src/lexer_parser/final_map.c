@@ -14,7 +14,7 @@ static int	rm_newline_map(t_tools *tools)
 		{
 			free_split(tools->map, i);
 			tools->map = NULL;
-			return (1);
+			return (printf("error: malloc\n"), 1);
 		}
 		i++;
 	}
@@ -35,11 +35,11 @@ static int	verif_newline_map(t_tools *tools)
 		j++;
 	temp = ft_tab_dup(&tools->map[i]);
 	if (temp == NULL)
-		return (1);
+		return (printf("error: malloc\n"), 1);
 	free_split(tools->map, i + j);
 	tools->map = ft_tab_dup(temp);
 	if (tools->map == NULL)
-		return (free_split(temp, j), 1);
+		return (free_split(temp, j), printf("error: malloc\n"), 1);
 	free_split(temp, j);
 	if (rm_newline_map(tools) == 1)
 		return (1);
