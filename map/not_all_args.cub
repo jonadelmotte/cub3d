@@ -1,9 +1,5 @@
 
-
-
-NO       ./path_to_marius_texture
-
-F 220,100,0
+NO       ./path_to_the_north_texture
 
 
 
@@ -12,13 +8,9 @@ WE ./path_to_the_west_texture
 EA ./path_to_the_east_texture
 
 
-
 C 225,30,0
 
-
-
-1111111111
-1W00000001
-1000000001
-1000000001
-1111111111
+11111
+10001
+100W1
+11111

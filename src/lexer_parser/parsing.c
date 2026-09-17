@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:30:28 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/15 16:51:09 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/17 16:16:57 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	check_elements(t_data *data, int x, int y, int start_position)
 				start_position++;
 				data->player.pos_x = x;
 				data->player.pos_y = y;
-				data->player.starting_pos = data->tools.map[y][x];
+				data->player.direction = data->tools.map[y][x];
 				data->tools.map[y][x] = FLOOR;
 			}
 			x++;
@@ -99,6 +99,8 @@ int	resolve_parsing(t_data *data, int argc, char *argv)
 	if (check_elements(data, 0, 0, 0) == 1)
 		return (1);
 	if (verif_map(data->tools.map) == 1)
+		return (1);
+	if (color_parsing(data) == 1)
 		return (1);
 	return (0);
 }

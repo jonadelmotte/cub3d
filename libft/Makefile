@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
+#    By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/01 11:34:04 by jdelmott          #+#    #+#              #
-#    Updated: 2026/09/07 15:12:27 by sdabbas          ###   ########.fr        #
+#    Updated: 2026/09/17 16:20:08 by jdelmott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 FILES = ft_bzero ft_calloc ft_strjoin ft_strlcpy ft_tab_dup ft_strlen ft_split \
 		ft_strjoin ft_strncmp ft_strdup get_next_line ft_split_keep ft_strchr \
-		ft_is_space ft_strnstr ft_join_one ft_renew_one \
+		ft_is_space ft_strnstr ft_join_one ft_renew_one ft_atoi \
 
 SRC_DIR = src/
 OBJ_DIR = obj/

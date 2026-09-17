@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 14:23:34 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/14 17:50:24 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/17 13:53:51 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static int	is_surrounded(char **map, int line, int i)
 	{
 		if (is_floor(map, line - 1, i) == 1)
 			return (1);
-		if (is_floor(map, line - 1, i - 1) == 1)
+		if (is_floor(map, line - 1, i - 1) == 1)//angle 1
 			return (1);
-		if (is_floor(map, line - 1, i + 1) == 1)
+		if (is_floor(map, line - 1, i + 1) == 1)//angle 2
 			return (1);
 		if (is_floor(map, line, i - 1) == 1)
 			return (1);
@@ -36,9 +36,9 @@ static int	is_surrounded(char **map, int line, int i)
 			return (1);
 		if (is_floor(map, line + 1, i) == 1)
 			return (1);
-		if (is_floor(map, line + 1, i - 1) == 1)
+		if (is_floor(map, line + 1, i - 1) == 1)//angle 3
 			return (1);
-		if (is_floor(map, line + 1, i + 1) == 1)
+		if (is_floor(map, line + 1, i + 1) == 1)//angle 4
 			return (1);
 	}
 	return (0);

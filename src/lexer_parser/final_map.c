@@ -29,8 +29,10 @@ static int	verif_newline_map(t_tools *tools)
 
 	i = 0;
 	j = 0;
-	while (tools->map[i][0] == '\n')
+	while (tools->map[i] && tools->map[i][0] == '\n')
 		i++;
+	if (!tools->map[i])	
+		return (printf("error: map is missing\nso sad\n"), 1);
 	while (tools->map[i + j])
 		j++;
 	temp = ft_tab_dup(&tools->map[i]);

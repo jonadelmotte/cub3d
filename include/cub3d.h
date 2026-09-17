@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/14 17:51:31 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/09/17 16:16:34 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,24 @@ typedef struct s_player
 {
 	int			pos_x;
 	int			pos_y;
-	char		starting_pos;
+	char		direction;
 }				t_player;
+
+typedef struct s_colors
+{
+	int			r_floor;
+	int			g_floor;
+	int			b_floor;
+	int			r_ceiling;
+	int			g_ceiling;
+	int			b_ceiling;
+}				t_colors;
 
 typedef struct s_data
 {
 	t_tools		tools;
 	t_player	player;
+	t_colors	colors;
 }				t_data;
 
 /* * * * * * * * * * * * FREE * * * * * * * * * * * * * */
@@ -73,12 +84,9 @@ int				check_args(int argc, char *argv);
 int				check_char(t_tools *tools);
 int				check_elements(t_data *data, int x, int y, int start_position);
 int				verif_map(char **map);
-int	resolve_parsing(t_data *data, int argc, char *argv);
+int				resolve_parsing(t_data *data, int argc, char *argv);
+int				color_parsing(t_data *data);
 
-int check_sides(char **map);
-
-// verifier la derniere ligne;
-//pas map
-
+int				check_sides(char **map);
 
 #endif

@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
+#    By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/03 14:15:13 by jdelmott          #+#    #+#              #
-#    Updated: 2026/09/14 15:56:00 by sdabbas          ###   ########.fr        #
+#    Updated: 2026/09/17 16:19:55 by jdelmott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
-FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils check_sides \
+FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils check_sides color_parsing \
 
 SRC_DIR = src/
 OBJ_DIR = obj/

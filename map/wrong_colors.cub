@@ -1,6 +1,6 @@
   NO       ./path_to_the_north_texture
 
-F 220,100,0
+F abc
 
 
 SO                ./path_to_the_south_texture      
@@ -9,7 +9,7 @@ EA ./path_to_the_east_texture
 
 
 
-C 225,30,0
+C 225,30,1
 
 
 
