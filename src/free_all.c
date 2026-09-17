@@ -1,6 +1,6 @@
 #include <cub3d.h>
 
-void	free_tools(t_tools *tools)
+static void	free_tools(t_tools *tools)
 {
 	int	i;
 
@@ -23,4 +23,9 @@ void	free_tools(t_tools *tools)
 			i++;
 		free_split(tools->map, i);
 	}
+}
+
+void	free_all(t_data *data)
+{
+	free_tools(&data->tools);
 }

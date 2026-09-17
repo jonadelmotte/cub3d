@@ -6,7 +6,7 @@
 /*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:30:28 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/17 16:16:57 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/17 17:14:55 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,29 @@ int	check_elements(t_data *data, int x, int y, int start_position)
 	return (0);
 }
 
+static int open_textures(t_tools *tools)
+{
+	int fd;
+	
+	fd = open(tools->EA, O_RDONLY);
+	if (fd < 0)
+		return (printf("texture doesn't exist\n"), 1);
+	close(fd);
+	fd = open(tools->NO, O_RDONLY);
+	if (fd < 0)
+		return (printf("texture doesn't exist\n"), 1);
+	close(fd);
+	fd = open(tools->SO, O_RDONLY);
+	if (fd < 0)
+		return (printf("texture doesn't exist\n"), 1);
+	close(fd);
+	fd = open(tools->WE, O_RDONLY);
+	if (fd < 0)
+		return (printf("texture doesn't exist\n"), 1);
+	close(fd);
+	return (0);
+}
+
 int	resolve_parsing(t_data *data, int argc, char *argv)
 {
 	data->tools = init_null();
@@ -101,6 +124,8 @@ int	resolve_parsing(t_data *data, int argc, char *argv)
 	if (verif_map(data->tools.map) == 1)
 		return (1);
 	if (color_parsing(data) == 1)
+		return (1);
+	if (open_textures(&data->tools) == 1)
 		return (1);
 	return (0);
 }

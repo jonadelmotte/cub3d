@@ -6,7 +6,7 @@
 /*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/17 16:16:34 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/17 17:11:10 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct s_data
 }				t_data;
 
 /* * * * * * * * * * * * FREE * * * * * * * * * * * * * */
-void			free_tools(t_tools *tools);
+void	free_all(t_data *data);
 
 /* * * * * * * * * * * LEXER * * * * * * * * * * * * * */
 t_tools			init_null(void);
