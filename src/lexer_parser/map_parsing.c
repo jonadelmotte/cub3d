@@ -61,5 +61,7 @@ int	verif_map(char **map)
 		}
 		line++;
 	}
+	if (check_sides(map) == 1)
+		return (printf("Error: the map is not surrounded\n"), 1);
 	return (0);
 }

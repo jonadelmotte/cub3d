@@ -75,6 +75,10 @@ int				check_elements(t_data *data, int x, int y, int start_position);
 int				verif_map(char **map);
 int	resolve_parsing(t_data *data, int argc, char *argv);
 
+int check_sides(char **map);
+
 // verifier la derniere ligne;
+//pas map
+
 
 #endif
