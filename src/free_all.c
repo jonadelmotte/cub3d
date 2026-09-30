@@ -25,7 +25,16 @@ static void	free_tools(t_tools *tools)
 	}
 }
 
-void	free_all(t_data *data)
+int	free_all(t_data *data)
 {
-	free_tools(&data->tools);
+	free_tools(&data->tools); 
+	if (data->mlx_ptr)
+	{
+		if (data->win_ptr)
+			mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		mlx_destroy_display(data->mlx_ptr);
+		free(data->mlx_ptr);
+	}
+	exit(0);
+	return (0);
 }

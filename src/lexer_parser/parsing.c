@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:30:28 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/17 17:14:55 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/30 13:38:05 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ int	check_elements(t_data *data, int x, int y, int start_position)
 				|| data->tools.map[y][x] == 'E' || data->tools.map[y][x] == 'S')
 			{
 				start_position++;
-				data->player.pos_x = x;
-				data->player.pos_y = y;
-				data->player.direction = data->tools.map[y][x];
+				fill_player(data->tools.map[y][x], y, x, &data->player);
 				data->tools.map[y][x] = FLOOR;
 			}
 			x++;

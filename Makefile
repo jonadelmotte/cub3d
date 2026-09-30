@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+         #
+#    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/03 14:15:13 by jdelmott          #+#    #+#              #
-#    Updated: 2026/09/17 16:19:55 by jdelmott         ###   ########.fr        #
+#    Updated: 2026/09/30 16:17:05 by sdabbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
-FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils check_sides color_parsing \
+FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils check_sides color_parsing init_game\
 
 SRC_DIR = src/
 OBJ_DIR = obj/
@@ -30,7 +30,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-MLX_DIR		= ./minilibx-linux
+MLX_DIR		= ./minilibix-linux
 MLX_FLAGS	= -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 OBJF = .cache_exits
@@ -46,21 +46,26 @@ RESET = \033[0;39m
 $(OBJF):
 	@mkdir -p $(OBJ_DIR)
 
-vpath %.c $(SRC_DIR) $(SRC_DIR)lexer_parser
+vpath %.c $(SRC_DIR) $(SRC_DIR)lexer_parser $(SRC_DIR)mlx_usage
 
 all: $(NAME)
 
-$(NAME): $(OBJ) make_libft
-	@$(CC) $(FLAGSMAC) $(OBJ) $(LIBFT) -g3 -o $(NAME)
+$(NAME): $(OBJ) make_libft make_mlx
+	@$(CC) $(FLAGSMAC) $(OBJ) $(MLX_FLAGS) $(LIBFT) -g3 -o $(NAME)
 	@echo -e "$(PURPLE_2)cub3d Compiled!$(RESET)"
 
 $(OBJ_DIR)%.o: %.c $(OBJF)
-	@$(CC) $(FLAGSMAC) -c -g3 $< -o $@
+	@$(CC) $(FLAGSMAC) -I$(MLX_DIR) -c -g3 $< -o $@
 
 make_libft :
 	@echo -e "$(PURPLE_1)Entering directory 'libft'$(RESET)"
 	@make --no-print-directory -C $(LIBFT_DIR)
 	@echo -e "$(PURPLE_1)Leaving directory 'libft'$(RESET)"
+
+make_mlx :
+	@echo -e "$(PURPLE_1)Entering directory 'minilibx-linux'$(RESET)"
+	@make --no-print-directory -C $(MLX_DIR)
+	@echo -e "$(PURPLE_1)Leaving directory 'minilibix-linux'$(RESET)"
 
 clean:
 	@rm -f $(OBJ)

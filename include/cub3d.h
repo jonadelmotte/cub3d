@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/17 17:11:10 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/09/30 16:41:26 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <fcntl.h>
 # include <libft.h>
-// # include "mlx.h"
+# include <mlx.h>
 
 # define FLOOR '0'
 # define WALL '1'
@@ -28,6 +28,9 @@
 # define DOWN 65364
 # define LEFT 65361
 # define RIGHT 65363
+
+# define WINDOW_WIDTH 3000
+# define WINDOW_HEIGHT 3000
 
 # define PINK "\e[38;5;169m"
 # define PURPLE_1 "\e[38;5;181m"
@@ -49,6 +52,8 @@ typedef struct s_player
 {
 	int			pos_x;
 	int			pos_y;
+	double		dir_x;
+	double		dir_y;
 	char		direction;
 }				t_player;
 
@@ -64,13 +69,15 @@ typedef struct s_colors
 
 typedef struct s_data
 {
+	void		*mlx_ptr;
+	void		*win_ptr;
 	t_tools		tools;
 	t_player	player;
 	t_colors	colors;
 }				t_data;
 
 /* * * * * * * * * * * * FREE * * * * * * * * * * * * * */
-void	free_all(t_data *data);
+int				free_all(t_data *data);
 
 /* * * * * * * * * * * LEXER * * * * * * * * * * * * * */
 t_tools			init_null(void);
@@ -86,7 +93,10 @@ int				check_elements(t_data *data, int x, int y, int start_position);
 int				verif_map(char **map);
 int				resolve_parsing(t_data *data, int argc, char *argv);
 int				color_parsing(t_data *data);
-
+void			fill_player(char dir, int x, int y, t_player *player);
 int				check_sides(char **map);
 
+/* * * * * * * * * * * * MLX * * * * * * * * * * * */
+int				init_game(t_data *data);
+int				key_hook(int key, t_data *data);
 #endif
