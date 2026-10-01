@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:56:16 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/17 15:32:23 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/10/01 14:00:12 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ char	*ft_strdup(const char *s);
 char	*renew(char *buffer, char *retu);
 char	**ft_split(const char *str, char sep);
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);
-int     free_split(char **split, int count);
+int		free_split(char **split, int count);
 char	**ft_tab_dup(char **str);
 char	**ft_split_keep(const char *str, char sep);
 char	*ft_join_one(char const *s, char const c);
 char	*ft_renew_one(char *start, char end);
-int	ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
 
 #endif

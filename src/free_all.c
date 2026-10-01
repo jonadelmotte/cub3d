@@ -1,6 +1,6 @@
 #include <cub3d.h>
 
-void		free_tools(t_tools *tools)
+void	free_tools(t_tools *tools)
 {
 	int	i;
 

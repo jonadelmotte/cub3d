@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 14:23:34 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/30 13:37:45 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/01 17:08:29 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,34 @@ int	verif_map(char **map)
 	return (0);
 }
 
+void fill_fov(t_player *player)
+{
+	if (player->direction == 'N')
+	{
+		player->view_x = FOV;
+		player->view_y = 0;
+	}
+	else if (player->direction == 'S')
+	{
+		player->view_x = -FOV;
+		player->view_y = 0;
+	}
+	else if (player->direction == 'E')
+	{
+		player->view_x = 0;
+		player->view_y = FOV;
+	}
+	else if (player->direction == 'W')
+	{
+		player->view_x = 0;
+		player->view_y = -FOV;
+	}
+}
+
 void	fill_player(char dir, int y, int x, t_player *player)
 {
-	player->pos_x = x;
-	player->pos_y = y;
+	player->pos_x = x + 0.5;
+	player->pos_y = y + 0.5;
 	if (dir == 'N')
 	{
 		player->dir_x = 0;
@@ -91,4 +115,5 @@ void	fill_player(char dir, int y, int x, t_player *player)
 		player->dir_y = 0;
 	}
 	player->direction = dir;
+	fill_fov(player);
 }

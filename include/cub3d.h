@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/01 12:50:13 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/01 17:16:37 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <fcntl.h>
 # include <libft.h>
+# include <math.h>
 # include <mlx.h>
 
 # define FLOOR '0'
@@ -28,22 +29,25 @@
 # define DOWN 65364
 # define LEFT 65361
 # define RIGHT 65363
+# define PI 3.14159265358979323846
 
 # define WINDOW_WIDTH 300
 # define WINDOW_HEIGHT 300
+
+# define FOV 0.66
 
 # define PINK "\e[38;5;169m"
 # define PURPLE_1 "\e[38;5;181m"
 # define PURPLE_2 "\e[38;5;161m"
 # define RESET "\e[0;39m"
 
-typedef	enum e_walls
+typedef enum e_walls
 {
 	NORTH,
 	SOUTH,
 	WEST,
 	EAST,
-}	t_walls;
+}				t_walls;
 
 typedef struct s_tools
 {
@@ -58,10 +62,12 @@ typedef struct s_tools
 
 typedef struct s_player
 {
-	int			pos_x;
-	int			pos_y;
+	double			pos_x;
+	double			pos_y;
 	double		dir_x;
 	double		dir_y;
+	double		view_x;
+	double		view_y;
 	char		direction;
 }				t_player;
 
@@ -77,15 +83,14 @@ typedef struct s_colors
 
 typedef struct s_img
 {
-	void	*mlx_img;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-	int		img_h;
-	int		img_w;
-}			t_img;
-
+	void		*mlx_img;
+	char		*addr;
+	int			bpp;
+	int			line_len;
+	int			endian;
+	int			img_h;
+	int			img_w;
+}				t_img;
 
 typedef struct s_data
 {
@@ -100,7 +105,7 @@ typedef struct s_data
 
 /* * * * * * * * * * * * FREE * * * * * * * * * * * * * */
 int				free_all(t_data *data);
-void	free_tools(t_tools *tools);
+void			free_tools(t_tools *tools);
 
 /* * * * * * * * * * * LEXER * * * * * * * * * * * * * */
 t_tools			init_null(void);
@@ -123,4 +128,8 @@ int				check_sides(char **map);
 int				init_game(t_data *data);
 int				key_hook(int key, t_data *data);
 void			init_asset(t_data *data);
+
+/* * * * * * * * * * * RAYCASTING * * * * * * * * * * * */
+void			init_raycast(t_data *data);
+
 #endif

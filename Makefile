@@ -6,13 +6,13 @@
 #    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/03 14:15:13 by jdelmott          #+#    #+#              #
-#    Updated: 2026/09/30 16:42:50 by sdabbas          ###   ########.fr        #
+#    Updated: 2026/10/01 14:54:24 by sdabbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
-FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils check_sides color_parsing init_game\
+FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils check_sides color_parsing init_game init_raycast\
 
 SRC_DIR = src/
 OBJ_DIR = obj/
@@ -46,7 +46,7 @@ RESET = \033[0;39m
 $(OBJF):
 	@mkdir -p $(OBJ_DIR)
 
-vpath %.c $(SRC_DIR) $(SRC_DIR)lexer_parser $(SRC_DIR)mlx_usage
+vpath %.c $(SRC_DIR) $(SRC_DIR)lexer_parser $(SRC_DIR)mlx_usage $(SRC_DIR)raycasting
 
 all: $(NAME)
 
