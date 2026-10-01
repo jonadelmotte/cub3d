@@ -1,6 +1,6 @@
 #include <cub3d.h>
 
-static void	free_tools(t_tools *tools)
+void		free_tools(t_tools *tools)
 {
 	int	i;
 
@@ -27,9 +27,13 @@ static void	free_tools(t_tools *tools)
 
 int	free_all(t_data *data)
 {
-	free_tools(&data->tools); 
+	free_tools(&data->tools);
 	if (data->mlx_ptr)
 	{
+		mlx_destroy_image(data->mlx_ptr, data->walls[NORTH].mlx_img);
+		mlx_destroy_image(data->mlx_ptr, data->walls[SOUTH].mlx_img);
+		mlx_destroy_image(data->mlx_ptr, data->walls[EAST].mlx_img);
+		mlx_destroy_image(data->mlx_ptr, data->walls[WEST].mlx_img);
 		if (data->win_ptr)
 			mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 		mlx_destroy_display(data->mlx_ptr);

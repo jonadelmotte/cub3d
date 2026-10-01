@@ -1,11 +1,11 @@
-  NO       ./textures/texture_NO
+  NO       ./textures/flora.xpm
 
 F 220,100,0
 
 
-SO                ./textures/texture_SO      
-WE ./textures/texture_WE
-EA ./textures/texture_EA
+SO                ./textures/flora.xpm      
+WE ./textures/flora.xpm
+EA ./textures/flora.xpm
 
 
 

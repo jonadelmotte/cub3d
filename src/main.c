@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 11:29:08 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/30 16:39:58 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/01 12:50:45 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char *argv[])
 	t_data	data;
 
 	if (resolve_parsing(&data, argc, argv[1]) == 1)
-		return (free_all(&data), 1);
+		return (free_tools(&data.tools), 1);
 	if (init_game(&data) == 1)
 		return (free_all(&data), 1);
 	mlx_hook(data.win_ptr, 2, 1L << 0, (void *)key_hook, &data);

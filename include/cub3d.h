@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/30 16:41:26 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/01 12:50:13 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,21 @@
 # define LEFT 65361
 # define RIGHT 65363
 
-# define WINDOW_WIDTH 3000
-# define WINDOW_HEIGHT 3000
+# define WINDOW_WIDTH 300
+# define WINDOW_HEIGHT 300
 
 # define PINK "\e[38;5;169m"
 # define PURPLE_1 "\e[38;5;181m"
 # define PURPLE_2 "\e[38;5;161m"
 # define RESET "\e[0;39m"
+
+typedef	enum e_walls
+{
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST,
+}	t_walls;
 
 typedef struct s_tools
 {
@@ -67,6 +75,18 @@ typedef struct s_colors
 	int			b_ceiling;
 }				t_colors;
 
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+	int		img_h;
+	int		img_w;
+}			t_img;
+
+
 typedef struct s_data
 {
 	void		*mlx_ptr;
@@ -74,10 +94,13 @@ typedef struct s_data
 	t_tools		tools;
 	t_player	player;
 	t_colors	colors;
+	t_img		wall_1;
+	t_img		walls[4];
 }				t_data;
 
 /* * * * * * * * * * * * FREE * * * * * * * * * * * * * */
 int				free_all(t_data *data);
+void	free_tools(t_tools *tools);
 
 /* * * * * * * * * * * LEXER * * * * * * * * * * * * * */
 t_tools			init_null(void);
@@ -99,4 +122,5 @@ int				check_sides(char **map);
 /* * * * * * * * * * * * MLX * * * * * * * * * * * */
 int				init_game(t_data *data);
 int				key_hook(int key, t_data *data);
+void			init_asset(t_data *data);
 #endif
