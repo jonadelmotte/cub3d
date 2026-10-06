@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/01 17:16:37 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/06 16:26:19 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <libft.h>
 # include <math.h>
 # include <mlx.h>
+# include <curses.h>
 
 # define FLOOR '0'
 # define WALL '1'
@@ -60,14 +61,29 @@ typedef struct s_tools
 	char		**map;
 }				t_tools;
 
+typedef struct s_pos
+{
+	double		x;
+	double		y;
+}				t_pos;
+
+typedef struct s_raycast
+{
+	t_pos		rayon;
+	t_pos		size_rayon;
+	t_pos		map;
+	t_pos		size_dist;
+	t_pos		step;
+	int			side;
+	int			player_dist;
+}				t_raycast;
+
 typedef struct s_player
 {
-	double			pos_x;
-	double			pos_y;
-	double		dir_x;
-	double		dir_y;
-	double		view_x;
-	double		view_y;
+	t_pos		box;
+	t_pos		pos;
+	t_pos		dir;
+	t_pos		view;
 	char		direction;
 }				t_player;
 

@@ -6,7 +6,7 @@
 #    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/03 14:15:13 by jdelmott          #+#    #+#              #
-#    Updated: 2026/10/01 14:54:24 by sdabbas          ###   ########.fr        #
+#    Updated: 2026/10/06 14:19:56 by sdabbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-MLX_DIR		= ./minilibx-linux
+MLX_GIT  	= https://github.com/42paris/minilibx-linux.git
+MLX_DIR		= minilibx-linux
 MLX_FLAGS	= -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 OBJF = .cache_exits
@@ -50,7 +51,7 @@ vpath %.c $(SRC_DIR) $(SRC_DIR)lexer_parser $(SRC_DIR)mlx_usage $(SRC_DIR)raycas
 
 all: $(NAME)
 
-$(NAME): $(OBJ) make_libft make_mlx
+$(NAME): make_mlx $(OBJ) make_libft 
 	@$(CC) $(FLAGSMAC) $(OBJ) $(MLX_FLAGS) $(LIBFT) -g3 -o $(NAME)
 	@echo -e "$(PURPLE_2)cub3d Compiled!$(RESET)"
 
@@ -62,14 +63,19 @@ make_libft :
 	@make --no-print-directory -C $(LIBFT_DIR)
 	@echo -e "$(PURPLE_1)Leaving directory 'libft'$(RESET)"
 
-make_mlx :
+make_mlx : $(MLX_DIR)
 	@echo -e "$(PURPLE_1)Entering directory 'minilibx-linux'$(RESET)"
 	@make --no-print-directory -C $(MLX_DIR)
 	@echo -e "$(PURPLE_1)Leaving directory 'minilibix-linux'$(RESET)"
 
+$(MLX_DIR):
+	@echo -e "$(PURPLE_1)'Clonning $(MLX_GIT) in $(MLX_DIR)'$(RESET)"
+	@git clone $(MLX_GIT) $(MLX_DIR)
+
 clean:
 	@rm -f $(OBJ)
 	@rm -rf $(OBJ_DIR)
+	@rm -rf minilibx-linux
 	@echo -e "$(PURPLE_1)Entering directory 'libft'$(RESET)"
 	@make --no-print-directory clean -C $(LIBFT_DIR)
 	@echo -e "$(PURPLE_1)Leaving directory 'libft'$(RESET)"
@@ -78,6 +84,7 @@ clean:
 fclean:
 	@rm -f $(OBJ)
 	@rm -rf $(OBJ_DIR)
+	@rm -rf minilibx-linux
 	@rm -f $(NAME)
 	@echo -e "$(PURPLE_1)Entering directory 'libft'$(RESET)"
 	@make --no-print-directory fclean -C $(LIBFT_DIR)

@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 14:23:34 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/01 17:08:29 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/06 14:18:29 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,54 +66,56 @@ int	verif_map(char **map)
 	return (0);
 }
 
-void fill_fov(t_player *player)
+static void fill_fov(t_player *player, char dir)
 {
+	player->direction = dir;
 	if (player->direction == 'N')
 	{
-		player->view_x = FOV;
-		player->view_y = 0;
+		player->view.x = FOV;
+		player->view.y = 0;
 	}
 	else if (player->direction == 'S')
 	{
-		player->view_x = -FOV;
-		player->view_y = 0;
+		player->view.x = -FOV;
+		player->view.y = 0;
 	}
 	else if (player->direction == 'E')
 	{
-		player->view_x = 0;
-		player->view_y = FOV;
+		player->view.x = 0;
+		player->view.y = FOV;
 	}
 	else if (player->direction == 'W')
 	{
-		player->view_x = 0;
-		player->view_y = -FOV;
+		player->view.x = 0;
+		player->view.y = -FOV;
 	}
 }
 
 void	fill_player(char dir, int y, int x, t_player *player)
 {
-	player->pos_x = x + 0.5;
-	player->pos_y = y + 0.5;
+	player->pos.x = x + 0.5;
+	player->pos.y = y + 0.5;
+	player->box.x = x;
+	player->box.y = y;
 	if (dir == 'N')
 	{
-		player->dir_x = 0;
-		player->dir_y = -1;
+		player->dir.x = 0;
+		player->dir.y = -1;
 	}
 	else if (dir == 'S')
 	{
-		player->dir_x = 0;
-		player->dir_y = 1;
+		player->dir.x = 0;
+		player->dir.y = 1;
 	}
 	else if (dir == 'E')
 	{
-		player->dir_x = 1;
-		player->dir_y = 0;
+		player->dir.x = 1;
+		player->dir.y = 0;
 	}
 	else if (dir == 'W')
 	{
-		player->dir_x = -1;
-		player->dir_y = 0;
+		player->dir.x = -1;
+		player->dir.y = 0;
 	}
-	player->direction = dir;
-	fill_fov(player);
+	fill_fov(player, dir);
 }
