@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 15:34:41 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/17 17:11:32 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/10/08 17:03:01 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,7 @@ int	color_parsing(t_data *data)
 	split_colors(data);
 	if (is_negatif(&data->colors) == 1)
 		return (1);
+	data->colors.floor = (data->colors.r_floor << 16) | (data->colors.g_floor << 8) | data->colors.b_floor;
+	data->colors.ceiling = (data->colors.r_ceiling << 16) | (data->colors.g_ceiling << 8) | data->colors.b_ceiling;
 	return (0);
 }

@@ -6,18 +6,18 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/06 16:26:19 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/08 17:17:20 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include <curses.h>
 # include <fcntl.h>
 # include <libft.h>
 # include <math.h>
 # include <mlx.h>
-# include <curses.h>
 
 # define FLOOR '0'
 # define WALL '1'
@@ -75,7 +75,12 @@ typedef struct s_raycast
 	t_pos		size_dist;
 	t_pos		step;
 	int			side;
-	int			player_dist;
+	double		player_dist;
+	int			wall_height;
+	int			wall_start;
+	int			wall_end;
+	double		wall_pos;
+	int			wall_slice;
 }				t_raycast;
 
 typedef struct s_player
@@ -92,9 +97,11 @@ typedef struct s_colors
 	int			r_floor;
 	int			g_floor;
 	int			b_floor;
+	int			floor;
 	int			r_ceiling;
 	int			g_ceiling;
 	int			b_ceiling;
+	int			ceiling;
 }				t_colors;
 
 typedef struct s_img
@@ -115,7 +122,7 @@ typedef struct s_data
 	t_tools		tools;
 	t_player	player;
 	t_colors	colors;
-	t_img		wall_1;
+	t_img		screen;
 	t_img		walls[4];
 }				t_data;
 
@@ -144,6 +151,8 @@ int				check_sides(char **map);
 int				init_game(t_data *data);
 int				key_hook(int key, t_data *data);
 void			init_asset(t_data *data);
+int    find_pixel(t_data *data, int x, int y, int wall_side);
+void	put_pixel(t_data *data, int x, int y, int color);
 
 /* * * * * * * * * * * RAYCASTING * * * * * * * * * * * */
 void			init_raycast(t_data *data);
