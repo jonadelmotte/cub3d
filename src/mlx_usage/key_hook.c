@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 15:13:06 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/19 16:00:48 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/19 16:17:27 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int key_hook(int key, t_data *data)
     if (key == KEY_S)
         player_move(data, -1.0 * SPEED, 0.0 * SPEED);
     if (key == KEY_A)
-        player_move(data, 0.0 * SPEED, -1.0 * SPEED);
-    if (key == KEY_D)
         player_move(data, 0.0 * SPEED, 1.0 * SPEED);
+    if (key == KEY_D)
+        player_move(data, 0.0 * SPEED, -1.0 * SPEED);
     if (key == LEFT)
         view_move(data, 1);
     if (key == RIGHT)
