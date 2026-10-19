@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 14:46:22 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/08 17:26:45 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/19 16:11:54 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,24 @@ void	search_wall_height(t_raycast *ray)
 		ray->wall_end = WINDOW_HEIGHT - 1;
 }
 
+int define_side(t_raycast ray)
+{
+    if (ray.side == 0)
+    {
+        if (ray.rayon.x > 0)
+            return (WEST);
+        else
+            return (EAST);
+    }
+    else
+    {
+        if (ray.rayon.y > 0)
+            return (NORTH);
+        else
+            return (SOUTH);
+    }
+}
+
 void	search_wall_slice(t_data *data, t_raycast *ray)
 {
     int wall_side;
@@ -115,24 +133,6 @@ void	search_wall_slice(t_data *data, t_raycast *ray)
         ray->wall_slice = data->walls[wall_side].img_w - 1;
 }
 
-t_walls define_side(t_raycast ray)
-{
-    if (ray.side == 0)
-    {
-        if (ray.rayon.x > 0)
-            return (WEST);
-        else
-            return (EAST);
-    }
-    else
-    {
-        if (ray.rayon.y > 0)
-            return (NORTH);
-        else
-            return (SOUTH);
-    }
-}
-
 void    wall_print(t_data *data, t_raycast *ray, int window_i)
 {
     int wall_side;
@@ -144,9 +144,9 @@ void    wall_print(t_data *data, t_raycast *ray, int window_i)
     y = 0;
     wall_side = define_side(*ray);
     wall_y = (double)data->walls[wall_side].img_h / (double)ray->wall_height;
-    wall_pos = (ray->wall_start - (WINDOW_HEIGHT / 2) + (ray->wall_height / 2)) * wall_y;
+    wall_pos = (ray->wall_start - (WINDOW_HEIGHT / 2) + (ray->wall_height / 2)) * wall_y;		
     while (y < ray->wall_start)
-    {
+    {	
         put_pixel(data, window_i, y, data->colors.ceiling);
         y++;
     }
@@ -157,7 +157,7 @@ void    wall_print(t_data *data, t_raycast *ray, int window_i)
             wall_i = data->walls[wall_side].img_h - 1;
         if (wall_i < 0)
             wall_i = 0;
-        wall_pos += wall_y;
+        wall_pos += wall_y;	
         put_pixel(data, window_i, y, find_pixel(data, ray->wall_slice, wall_i, wall_side));
         y++;
     }
@@ -187,8 +187,9 @@ void	init_raycast(t_data *data)
 		ray.size_dist = define_size_dist(data->player.pos, ray);
 		search_wall(data, &ray);
 		search_wall_height(&ray);
-		search_wall_slice(&data, &ray);
+		search_wall_slice(data, &ray);	
         wall_print(data, &ray, i);
 		i++;
 	}
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->screen.mlx_img, 0, 0);
 }

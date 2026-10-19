@@ -30,6 +30,7 @@ int	free_all(t_data *data)
 	free_tools(&data->tools);
 	if (data->mlx_ptr)
 	{
+		mlx_destroy_image(data->mlx_ptr, data->screen.mlx_img);
 		mlx_destroy_image(data->mlx_ptr, data->walls[NORTH].mlx_img);
 		mlx_destroy_image(data->mlx_ptr, data->walls[SOUTH].mlx_img);
 		mlx_destroy_image(data->mlx_ptr, data->walls[EAST].mlx_img);

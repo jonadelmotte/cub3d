@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:05:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/01 12:43:43 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/19 15:13:27 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,10 @@ static void	init_image(t_data *data, t_img *img, char *path)
 
 void	init_asset(t_data *data)
 {
+    data->screen.mlx_img = mlx_new_image(data->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
+    data->screen.addr = mlx_get_data_addr(data->screen.mlx_img, &data->screen.bpp, &data->screen.line_len, &data->screen.endian);
 	init_image(data, &data->walls[NORTH], data->tools.NO);
     init_image(data, &data->walls[SOUTH], data->tools.SO);
     init_image(data, &data->walls[EAST], data->tools.EA);
     init_image(data, &data->walls[WEST], data->tools.WE);
-}
-
-int key_hook(int key, t_data *data)
-{
-    if (key == ESC)
-        free_all(data);
-    if (key == KEY_W)
-        printf("move up\n");
-    if (key == KEY_S)
-        printf("move down\n");
-    if (key == KEY_A)
-        printf("move left\n");
-    if (key == KEY_D)
-        printf("move right\n");
-    if (key == LEFT)
-        printf("look left\n");
-    if (key == RIGHT)
-        printf("look right\n");
-    return (0);
 }

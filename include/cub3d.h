@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/08 17:17:20 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/19 15:40:07 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@
 # define RIGHT 65363
 # define PI 3.14159265358979323846
 
-# define WINDOW_WIDTH 300
-# define WINDOW_HEIGHT 300
+# define WINDOW_WIDTH 1000
+# define WINDOW_HEIGHT 1000
 
 # define FOV 0.66
+# define SPEED 0.1
 
 # define PINK "\e[38;5;169m"
 # define PURPLE_1 "\e[38;5;181m"
