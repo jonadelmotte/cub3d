@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 15:51:46 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/01 12:49:57 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/20 16:05:51 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,17 @@ t_tools	init_null(void)
 	tools.C = NULL;
 	tools.map = NULL;
 	return (tools);
+}
+
+void	init_keys(t_data *data)
+{
+	data->keys[K_ESC] = 0;
+	data->keys[K_KEY_W] = 0;
+	data->keys[K_KEY_S] = 0;
+	data->keys[K_KEY_A] = 0;
+	data->keys[K_KEY_D] = 0;
+	data->keys[K_LEFT] = 0;
+	data->keys[K_RIGHT] = 0;
 }
 
 char	*rm_newline(char *str)

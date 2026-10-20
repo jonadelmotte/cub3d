@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 11:29:08 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/19 16:13:42 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/20 16:15:00 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ int	main(int argc, char *argv[])
 		return (free_tools(&data.tools), 1);
 	if (init_game(&data) == 1)
 		return (free_all(&data), 1);
-	mlx_hook(data.win_ptr, 2, 1L << 0, (void *)key_hook, &data);
-	mlx_hook(data.win_ptr, 17, 0, (void *)free_all, &data);	
-	init_raycast(&data);
-
+	mlx_loop_hook(data.mlx_ptr, (void *)handle_key_hook, &data);
+	mlx_hook(data.win_ptr, 2, 1L << 0, (void *)handle_key_press, &data);
+	mlx_hook(data.win_ptr, 3, 1L << 1, (void *)handle_key_release, &data);	
+	mlx_hook(data.win_ptr, 17, 0, (void *)free_all, &data);		
+	init_raycast(&data);	
 	mlx_loop(data.mlx_ptr);
 	// printf(PINK "NO = %s\nSO = %s\nWE = %s\nEA = %s\nF = %s\nC = %s\n\n" RESET,
 	// 	data.tools.NO, data.tools.SO, data.tools.WE, data.tools.EA,

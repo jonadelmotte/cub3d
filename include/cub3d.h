@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/19 15:40:07 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/20 16:20:17 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@
 # define FLOOR '0'
 # define WALL '1'
 # define ESC 65307
-# define KEY_W 119
-# define KEY_S 115
 # define KEY_A 97
 # define KEY_D 100
+# define KEY_W 119
+# define KEY_S 115
 # define UP 65362
 # define DOWN 65364
 # define LEFT 65361
 # define RIGHT 65363
-# define PI 3.14159265358979323846
 
 # define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 1000
 
 # define FOV 0.66
-# define SPEED 0.1
+# define P_SPEED 0.09
+# define C_SPEED 0.04
 
 # define PINK "\e[38;5;169m"
 # define PURPLE_1 "\e[38;5;181m"
@@ -50,6 +50,17 @@ typedef enum e_walls
 	WEST,
 	EAST,
 }				t_walls;
+
+typedef enum e_keys
+{
+	K_ESC,
+	K_KEY_W,
+	K_KEY_S,
+	K_KEY_A,
+	K_KEY_D,
+	K_LEFT,
+	K_RIGHT,
+}				t_keys;
 
 typedef struct s_tools
 {
@@ -125,6 +136,7 @@ typedef struct s_data
 	t_colors	colors;
 	t_img		screen;
 	t_img		walls[4];
+	int			keys[7];
 }				t_data;
 
 /* * * * * * * * * * * * FREE * * * * * * * * * * * * * */
@@ -133,6 +145,7 @@ void			free_tools(t_tools *tools);
 
 /* * * * * * * * * * * LEXER * * * * * * * * * * * * * */
 t_tools			init_null(void);
+void			init_keys(t_data *data);
 int				lex_line(char **final_tab, t_tools *tools);
 int				final_lexer(t_data *data, char *argv);
 int				final_map(t_tools *tools);
@@ -150,10 +163,12 @@ int				check_sides(char **map);
 
 /* * * * * * * * * * * * MLX * * * * * * * * * * * */
 int				init_game(t_data *data);
-int				key_hook(int key, t_data *data);
 void			init_asset(t_data *data);
-int    find_pixel(t_data *data, int x, int y, int wall_side);
-void	put_pixel(t_data *data, int x, int y, int color);
+int				find_pixel(t_data *data, int x, int y, int wall_side);
+void			put_pixel(t_data *data, int x, int y, int color);
+void handle_key_hook(t_data *data);
+void handle_key_press(int key, t_data *data);
+void handle_key_release(int key, t_data *data);
 
 /* * * * * * * * * * * RAYCASTING * * * * * * * * * * * */
 void			init_raycast(t_data *data);

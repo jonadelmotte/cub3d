@@ -6,18 +6,30 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 15:13:06 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/19 16:17:27 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/20 16:15:25 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-static void player_move(t_data *data, double y, double x)
+static void player_move(t_data *data, double side, int way)
 {
-    if (data->tools.map[(int)(data->player.pos.y + y)][(int)(data->player.pos.x + x)] != WALL)
+    t_pos move;
+
+    if (way == 0)
     {
-        data->player.pos.x += x;
-        data->player.pos.y += y;
+        move.x = side * data->player.dir.x * P_SPEED;
+        move.y = side * data->player.dir.y * P_SPEED;
+    }
+    else
+    {
+        move.x = side * data->player.view.x * P_SPEED;
+        move.y = side * data->player.view.y * P_SPEED;
+    }
+    if (data->tools.map[(int)(data->player.pos.y + move.y)][(int)(data->player.pos.x + move.x)] != WALL)
+    {
+        data->player.pos.x += move.x;
+        data->player.pos.y += move.y;
         data->player.box.x = (int)data->player.pos.x;
         data->player.box.y = (int)data->player.pos.y;
         init_raycast(data);
@@ -30,26 +42,67 @@ static void view_move(t_data *data, int side)
 
     temp.x = data->player.dir.x;
     temp.y = data->player.dir.y;
-    data->player.dir.x = (temp.x * cos(SPEED) - temp.y * sin(SPEED)) * side;
-    data->player.dir.y = (temp.x * sin(SPEED) + temp.y * cos(SPEED)) * side;
+    data->player.dir.x = (temp.x * cos(C_SPEED * side) - temp.y * sin(C_SPEED * side));
+    data->player.dir.y = (temp.x * sin(C_SPEED * side) + temp.y * cos(C_SPEED * side));
+    temp.x = data->player.view.x;
+    temp.y = data->player.view.y;
+    data->player.view.x = (temp.x * cos(C_SPEED * side) - temp.y * sin(C_SPEED *side));
+    data->player.view.y = (temp.x * sin(C_SPEED * side) + temp.y * cos(C_SPEED * side));
     init_raycast(data);
 }
 
-int key_hook(int key, t_data *data)
+void handle_key_hook(t_data *data)
+{
+    if (data->keys[K_ESC] == 1)
+        free_all(data);
+    if (data->keys[K_KEY_W] == 1)
+        player_move(data, 1.0, 0);
+    if (data->keys[K_KEY_S] == 1)
+        player_move(data, -1.0, 0);
+    if (data->keys[K_KEY_A] == 1)
+        player_move(data, -1.0, 1);
+    if (data->keys[K_KEY_D] == 1)
+        player_move(data, 1.0, 1);
+    if (data->keys[K_LEFT] == 1)
+        view_move(data, -1);
+    if (data->keys[K_RIGHT] == 1)
+        view_move(data, 1);
+}
+
+void handle_key_press(int key, t_data *data)
 {
     if (key == ESC)
         free_all(data);
     if (key == KEY_W)
-        player_move(data, 1.0 * SPEED, 0.0 * SPEED);
+        data->keys[K_KEY_W] = 1;
     if (key == KEY_S)
-        player_move(data, -1.0 * SPEED, 0.0 * SPEED);
+        data->keys[K_KEY_S] = 1;
     if (key == KEY_A)
-        player_move(data, 0.0 * SPEED, 1.0 * SPEED);
+        data->keys[K_KEY_A] = 1;
     if (key == KEY_D)
-        player_move(data, 0.0 * SPEED, -1.0 * SPEED);
+        data->keys[K_KEY_D] = 1;
     if (key == LEFT)
-        view_move(data, 1);
+        data->keys[K_LEFT] = 1;
     if (key == RIGHT)
-        view_move(data, -1);
-    return (0);
+        data->keys[K_RIGHT] = 1;
+    return ;
+}
+
+void handle_key_release(int key, t_data *data)
+{
+    if (key == ESC)
+        free_all(data);
+    if (key == KEY_W)
+        data->keys[K_KEY_W] = 0;
+    if (key == KEY_S)
+        data->keys[K_KEY_S] = 0;
+    if (key == KEY_A)
+        data->keys[K_KEY_A] = 0;
+    if (key == KEY_D)
+        data->keys[K_KEY_D] = 0;
+    if (key == LEFT)
+        data->keys[K_LEFT] = 0;
+    if (key == RIGHT)
+        data->keys[K_RIGHT] = 0;
+    return ;
 }
