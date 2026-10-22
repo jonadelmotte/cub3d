@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 15:34:41 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/08 17:03:01 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 14:34:45 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ static int	is_negatif(t_colors *colors)
 {
 	if (colors->b_ceiling < 0 || colors->r_ceiling < 0 || colors->g_ceiling < 0
 		|| colors->b_floor < 0 || colors->r_floor < 0 || colors->g_floor < 0)
-		return (printf("error: the rgb numbers should be between 0 and 255\n"), 1);
+		return (printf("error: the rgb numbers should be between 0 and 255\n"),
+			1);
 	return (0);
 }
 
@@ -56,12 +57,12 @@ static int	split_colors(t_data *data)
 {
 	char	**split;
 
-	split = ft_split(data->tools.C, ',');
+	split = ft_split(data->tools.c, ',');
 	data->colors.r_ceiling = ft_atoi(split[0]);
 	data->colors.g_ceiling = ft_atoi(split[1]);
 	data->colors.b_ceiling = ft_atoi(split[2]);
 	free_split(split, 3);
-	split = ft_split(data->tools.F, ',');
+	split = ft_split(data->tools.f, ',');
 	data->colors.r_floor = ft_atoi(split[0]);
 	data->colors.g_floor = ft_atoi(split[1]);
 	data->colors.b_floor = ft_atoi(split[2]);
@@ -71,14 +72,21 @@ static int	split_colors(t_data *data)
 
 int	color_parsing(t_data *data)
 {
-	if (verif_char(data->tools.C) == 1 || verif_char(data->tools.F) == 1
-		|| verif_nb_colors(data->tools.C) == 1
-		|| verif_nb_colors(data->tools.F) == 1)
+	int	temp_r;
+	int	temp_g;
+
+	if (verif_char(data->tools.c) == 1 || verif_char(data->tools.f) == 1
+		|| verif_nb_colors(data->tools.c) == 1
+		|| verif_nb_colors(data->tools.f) == 1)
 		return (printf("error: not the right format of colors\n"), 1);
 	split_colors(data);
 	if (is_negatif(&data->colors) == 1)
 		return (1);
-	data->colors.floor = (data->colors.r_floor << 16) | (data->colors.g_floor << 8) | data->colors.b_floor;
-	data->colors.ceiling = (data->colors.r_ceiling << 16) | (data->colors.g_ceiling << 8) | data->colors.b_ceiling;
+	temp_r = data->colors.r_floor << 16;
+	temp_g = data->colors.g_floor << 8;
+	data->colors.floor = temp_r | temp_g | data->colors.b_floor;
+	temp_r = data->colors.r_ceiling << 16;
+	temp_g = data->colors.g_ceiling << 8;
+	data->colors.ceiling = temp_r | temp_g | data->colors.b_ceiling;
 	return (0);
 }

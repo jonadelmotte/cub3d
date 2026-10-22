@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 15:04:22 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/15 16:43:39 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 14:26:36 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	free_split(char **split, int count)
 			}
 		}
 	}
-	if (split != NULL)	
+	if (split != NULL)
 		free(split);
 	return (1);
 }
@@ -45,7 +45,7 @@ static int	count_words(const char *str, char c)
 			count++;
 		while (str[i] != c && str[i])
 			i++;
-	}	
+	}
 	return (count);
 }
 

@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 14:35:37 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/15 16:39:01 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 14:26:50 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static char	**do_split(char **split, const char *str, char c)
 	while (str[i])
 	{
 		j = 0;
-
 		while (str[i + j] && str[i + j] != c)
 			j++;
 		if (str[i + j] && str[i + j] == c)
@@ -53,7 +52,7 @@ static char	**do_split(char **split, const char *str, char c)
 		split[words] = ft_calloc(sizeof(char), j + 1);
 		if (!split[words])
 			return (free_split(split, words), NULL);
-		ft_strlcpy(split[words], (char *)&str[i], j + 1);		
+		ft_strlcpy(split[words], (char *)&str[i], j + 1);
 		i += j;
 		words++;
 		if (words == count_words(str, c) + 1)

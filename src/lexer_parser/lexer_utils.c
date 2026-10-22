@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 15:51:46 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 13:41:05 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 14:31:48 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ t_tools	init_null(void)
 {
 	t_tools	tools;
 
-	tools.NO = NULL;
-	tools.SO = NULL;
-	tools.WE = NULL;
-	tools.EA = NULL;
-	tools.F = NULL;
-	tools.C = NULL;
+	tools.no = NULL;
+	tools.so = NULL;
+	tools.we = NULL;
+	tools.ea = NULL;
+	tools.f = NULL;
+	tools.c = NULL;
 	tools.map = NULL;
 	return (tools);
 }
@@ -48,9 +48,9 @@ void	init_walls_exist(t_data *data)
 
 char	*rm_newline(char *str)
 {
-	char **split;
-	char *retu;
-	size_t i;
+	char	**split;
+	char	*retu;
+	size_t	i;
 
 	i = 0;
 	split = ft_split(str, '\n');

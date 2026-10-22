@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   final_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/22 14:29:39 by sdabbas           #+#    #+#             */
+/*   Updated: 2026/10/22 14:29:41 by sdabbas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <cub3d.h>
 
 static int	rm_newline_map(t_tools *tools)
@@ -31,7 +43,7 @@ static int	verif_newline_map(t_tools *tools)
 	j = 0;
 	while (tools->map[i] && tools->map[i][0] == '\n')
 		i++;
-	if (!tools->map[i])	
+	if (!tools->map[i])
 		return (printf("error: map is missing\nso sad\n"), 1);
 	while (tools->map[i + j])
 		j++;

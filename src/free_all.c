@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_all.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/22 14:28:34 by sdabbas           #+#    #+#             */
+/*   Updated: 2026/10/22 14:28:40 by sdabbas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <cub3d.h>
 
 void	free_tools(t_tools *tools)
@@ -5,18 +17,18 @@ void	free_tools(t_tools *tools)
 	int	i;
 
 	i = 0;
-	if (tools->NO)
-		free(tools->NO);
-	if (tools->SO)
-		free(tools->SO);
-	if (tools->WE)
-		free(tools->WE);
-	if (tools->EA)
-		free(tools->EA);
-	if (tools->F)
-		free(tools->F);
-	if (tools->C)
-		free(tools->C);
+	if (tools->no)
+		free(tools->no);
+	if (tools->so)
+		free(tools->so);
+	if (tools->we)
+		free(tools->we);
+	if (tools->ea)
+		free(tools->ea);
+	if (tools->f)
+		free(tools->f);
+	if (tools->c)
+		free(tools->c);
 	if (tools->map)
 	{
 		while (tools->map[i])

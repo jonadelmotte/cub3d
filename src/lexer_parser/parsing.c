@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:30:28 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 13:42:25 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 14:31:30 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_char(t_tools *tools)
 				&& tools->map[i][y] != FLOOR && tools->map[i][y] != WALL
 				&& ft_is_space(tools->map[i][y]) != 1)
 			{
-				printf(PINK "Error\nThere is an unauthorized character\n" RESET);
+				printf("Error\nThere is an unauthorized character\n");
 				return (1);
 			}
 			y++;
@@ -83,23 +83,23 @@ int	check_elements(t_data *data, int x, int y, int start_position)
 	return (0);
 }
 
-static int open_textures(t_tools *tools)
+static int	open_textures(t_tools *tools)
 {
-	int fd;
-	
-	fd = open(tools->EA, O_RDONLY);
+	int	fd;
+
+	fd = open(tools->ea, O_RDONLY);
 	if (fd < 0)
 		return (printf("texture doesn't exist\n"), 1);
 	close(fd);
-	fd = open(tools->NO, O_RDONLY);
+	fd = open(tools->no, O_RDONLY);
 	if (fd < 0)
 		return (printf("texture doesn't exist\n"), 1);
 	close(fd);
-	fd = open(tools->SO, O_RDONLY);
+	fd = open(tools->so, O_RDONLY);
 	if (fd < 0)
 		return (printf("texture doesn't exist\n"), 1);
 	close(fd);
-	fd = open(tools->WE, O_RDONLY);
+	fd = open(tools->we, O_RDONLY);
 	if (fd < 0)
 		return (printf("texture doesn't exist\n"), 1);
 	close(fd);

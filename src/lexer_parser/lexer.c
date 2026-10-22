@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:24:47 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/01 14:37:13 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 14:22:45 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	is_empty(t_tools *tools)
 {
-	if (tools->C == NULL || tools->F == NULL || tools->NO == NULL
-		|| tools->SO == NULL || tools->EA == NULL || tools->WE == NULL)
+	if (tools->c == NULL || tools->f == NULL || tools->no == NULL
+		|| tools->so == NULL || tools->ea == NULL || tools->we == NULL)
 		return (1);
 	return (0);
 }
@@ -25,18 +25,18 @@ static int	fill_tools(t_tools *tools, char **texture)
 	int	len;
 
 	len = ft_strlen(texture[0]);
-	if (ft_strncmp(texture[0], "NO", len) == 0 && tools->NO == NULL)
-		tools->NO = ft_strdup(texture[1]);
-	else if (ft_strncmp(texture[0], "SO", len) == 0 && tools->SO == NULL)
-		tools->SO = ft_strdup(texture[1]);
-	else if (ft_strncmp(texture[0], "WE", len) == 0 && tools->WE == NULL)
-		tools->WE = ft_strdup(texture[1]);
-	else if (ft_strncmp(texture[0], "EA", len) == 0 && tools->EA == NULL)
-		tools->EA = ft_strdup(texture[1]);
-	else if (ft_strncmp(texture[0], "F", len) == 0 && tools->F == NULL)
-		tools->F = ft_strdup(texture[1]);
-	else if (ft_strncmp(texture[0], "C", len) == 0 && tools->C == NULL)
-		tools->C = ft_strdup(texture[1]);
+	if (ft_strncmp(texture[0], "NO", len) == 0 && tools->no == NULL)
+		tools->no = ft_strdup(texture[1]);
+	else if (ft_strncmp(texture[0], "SO", len) == 0 && tools->so == NULL)
+		tools->so = ft_strdup(texture[1]);
+	else if (ft_strncmp(texture[0], "WE", len) == 0 && tools->we == NULL)
+		tools->we = ft_strdup(texture[1]);
+	else if (ft_strncmp(texture[0], "EA", len) == 0 && tools->ea == NULL)
+		tools->ea = ft_strdup(texture[1]);
+	else if (ft_strncmp(texture[0], "F", len) == 0 && tools->f == NULL)
+		tools->f = ft_strdup(texture[1]);
+	else if (ft_strncmp(texture[0], "C", len) == 0 && tools->c == NULL)
+		tools->c = ft_strdup(texture[1]);
 	else
 		return (1);
 	return (0);

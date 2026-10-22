@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 15:31:50 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/09/17 16:36:15 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/10/22 14:28:00 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	signe;
+	int			signe;
 	long int	nbr;
-	int	i;
+	int			i;
 
 	signe = 1;
 	nbr = 0;
@@ -34,8 +34,8 @@ int	ft_atoi(const char *nptr)
 		nbr = nbr * 10 + (nptr[i] - '0');
 		i++;
 	}
-    if (nbr > 255)
-        return (-1);
-    else
-	    return (nbr * signe);
+	if (nbr > 255)
+		return (-1);
+	else
+		return (nbr * signe);
 }

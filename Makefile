@@ -6,14 +6,14 @@
 #    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/03 14:15:13 by jdelmott          #+#    #+#              #
-#    Updated: 2026/10/22 11:24:25 by sdabbas          ###   ########.fr        #
+#    Updated: 2026/10/22 14:47:56 by sdabbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
 FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils \
-		check_sides color_parsing init_game init_raycast print key_hook \
+		check_sides color_parsing init_game init_raycast print key_hook define search \
 
 SRC_DIR = src/
 OBJ_DIR = obj/

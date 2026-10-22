@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 14:23:34 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/20 16:25:19 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 14:31:05 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static int	is_surrounded(char **map, int line, int i)
 	{
 		if (is_floor(map, line - 1, i) == 1)
 			return (1);
-		if (is_floor(map, line - 1, i - 1) == 1)//angle 1
+		if (is_floor(map, line - 1, i - 1) == 1)
 			return (1);
-		if (is_floor(map, line - 1, i + 1) == 1)//angle 2
+		if (is_floor(map, line - 1, i + 1) == 1)
 			return (1);
 		if (is_floor(map, line, i - 1) == 1)
 			return (1);
@@ -36,9 +36,9 @@ static int	is_surrounded(char **map, int line, int i)
 			return (1);
 		if (is_floor(map, line + 1, i) == 1)
 			return (1);
-		if (is_floor(map, line + 1, i - 1) == 1)//angle 3
+		if (is_floor(map, line + 1, i - 1) == 1)
 			return (1);
-		if (is_floor(map, line + 1, i + 1) == 1)//angle 4
+		if (is_floor(map, line + 1, i + 1) == 1)
 			return (1);
 	}
 	return (0);
@@ -66,7 +66,7 @@ int	verif_map(char **map)
 	return (0);
 }
 
-static void fill_fov(t_player *player, char dir)
+static void	fill_fov(t_player *player, char dir)
 {
 	player->direction = dir;
 	if (player->direction == 'N')

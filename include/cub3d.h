@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/22 13:42:00 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 14:53:46 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 # define LEFT 65361
 # define RIGHT 65363
 
-# define WINDOW_WIDTH 1000
-# define WINDOW_HEIGHT 1000
+# define WIN_WIDTH 1000
+# define WIN_HEIGHT 1000
 
 # define FOV 0.66
 # define P_SPEED 0.09
@@ -64,12 +64,12 @@ typedef enum e_keys
 
 typedef struct s_tools
 {
-	char		*NO;
-	char		*SO;
-	char		*WE;
-	char		*EA;
-	char		*F;
-	char		*C;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+	char		*f;
+	char		*c;
 	char		**map;
 }				t_tools;
 
@@ -174,5 +174,12 @@ void			handle_key_release(int key, t_data *data);
 
 /* * * * * * * * * * * RAYCASTING * * * * * * * * * * * */
 void			init_raycast(t_data *data);
+t_pos			define_size_rayon(t_pos rayon);
+t_pos			define_size_dist(t_pos pos, t_raycast ray);
+t_pos			define_step(t_pos rayon);
+int				define_side(t_raycast ray);
+void			search_wall(t_data *data, t_raycast *ray);
+void			search_wall_height(t_raycast *ray);
+void			search_wall_slice(t_data *data, t_raycast *ray);
 
 #endif
