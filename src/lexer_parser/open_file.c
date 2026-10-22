@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 15:49:54 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/09/17 14:44:51 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/10/22 15:02:14 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	check_open(char *argv)
 
 	fd_file = open(argv, O_RDONLY);
 	if (fd_file == -1)
-		return (printf(PINK "Error\nFile couldn't be opened\n" RESET), -1);
+		return (printf("Error\nFile couldn't be opened\n"), -1);
 	return (fd_file);
 }
 
@@ -53,7 +53,7 @@ int	final_lexer(t_data *data, char *argv)
 		return (1);
 	tmp = read_file(fd);
 	if (tmp == NULL)
-		return (close(fd), 1);
+		return (printf("Error\nFile is empty\n"), close(fd), 1);
 	if (lex_line(tmp, &data->tools) == 1)
 		return (close(fd), 1);
 	close(fd);

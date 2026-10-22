@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 15:34:41 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/22 14:34:45 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:08:37 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	is_negatif(t_colors *colors)
 {
 	if (colors->b_ceiling < 0 || colors->r_ceiling < 0 || colors->g_ceiling < 0
 		|| colors->b_floor < 0 || colors->r_floor < 0 || colors->g_floor < 0)
-		return (printf("error: the rgb numbers should be between 0 and 255\n"),
+		return (printf("Error\nthe rgb numbers should be between 0 and 255\n"),
 			1);
 	return (0);
 }
@@ -78,7 +78,7 @@ int	color_parsing(t_data *data)
 	if (verif_char(data->tools.c) == 1 || verif_char(data->tools.f) == 1
 		|| verif_nb_colors(data->tools.c) == 1
 		|| verif_nb_colors(data->tools.f) == 1)
-		return (printf("error: not the right format of colors\n"), 1);
+		return (printf("Error\nNot the right format of colors\n"), 1);
 	split_colors(data);
 	if (is_negatif(&data->colors) == 1)
 		return (1);

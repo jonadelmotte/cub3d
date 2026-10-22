@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:24:47 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 14:22:45 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:03:48 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	lex_line(char **final_tab, t_tools *tools)
 		{
 			texture = ft_split(final_tab[i], ' ');
 			if (get_tools(tools, texture) != 0)
-				return (printf("error: not the right element/format\n"),
+				return (printf("Error\nNot the right element/format\n"),
 					free_split(final_tab, len), 1);
 		}
 		i++;
@@ -87,6 +87,6 @@ int	lex_line(char **final_tab, t_tools *tools)
 	tools->map = ft_tab_dup(&final_tab[i]);
 	free_split(final_tab, len);
 	if (i == 0)
-		return (1);
+		return (printf("Error\nFile is empty\n"), 1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:29:39 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 14:29:41 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:05:18 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ static int	rm_newline_map(t_tools *tools)
 	while (tools->map[i])
 	{
 		if (ft_strncmp(tools->map[i], "\n", ft_strlen(tools->map[i]) == 0))
-			return (printf("error: empty line in map\n"), 1);
+			return (printf("Error\nEmpty line in map\n"), 1);
 		tools->map[i] = rm_newline(tools->map[i]);
 		if (tools->map[i] == NULL)
 		{
 			free_split(tools->map, i);
 			tools->map = NULL;
-			return (printf("error: malloc\n"), 1);
+			return (printf("Error\nMalloc\n"), 1);
 		}
 		i++;
 	}
@@ -44,16 +44,16 @@ static int	verif_newline_map(t_tools *tools)
 	while (tools->map[i] && tools->map[i][0] == '\n')
 		i++;
 	if (!tools->map[i])
-		return (printf("error: map is missing\nso sad\n"), 1);
+		return (printf("Error\nMap is missing\nso sad\n"), 1);
 	while (tools->map[i + j])
 		j++;
 	temp = ft_tab_dup(&tools->map[i]);
 	if (temp == NULL)
-		return (printf("error: malloc\n"), 1);
+		return (printf("Error\nMalloc\n"), 1);
 	free_split(tools->map, i + j);
 	tools->map = ft_tab_dup(temp);
 	if (tools->map == NULL)
-		return (free_split(temp, j), printf("error: malloc\n"), 1);
+		return (free_split(temp, j), printf("Error\nMalloc\n"), 1);
 	free_split(temp, j);
 	if (rm_newline_map(tools) == 1)
 		return (1);

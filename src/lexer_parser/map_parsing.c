@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 14:23:34 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/22 14:31:05 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:07:51 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ int	verif_map(char **map)
 		while (map[line][i])
 		{
 			if (is_surrounded(map, line, i) == 1)
-				return (printf("%s\n\n", map[line]), 1);
+				return (printf("Error\nThe map is not surrounded\n"), 1);
 			i++;
 		}
 		line++;
 	}
 	if (check_sides(map) == 1)
-		return (printf("Error: the map is not surrounded\n"), 1);
+		return (printf("Error\nThe map is not surrounded\n"), 1);
 	return (0);
 }
 

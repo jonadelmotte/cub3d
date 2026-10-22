@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:30:28 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 14:31:30 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:10:05 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	check_args(int argc, char *argv)
 		return (0);
 	}
 	else
-		printf("Not the right amount of arguments\n");
+		printf("Error\nNot the right amount of arguments\n");
 	return (1);
 }
 
@@ -77,7 +77,7 @@ int	check_elements(t_data *data, int x, int y, int start_position)
 	}
 	if (start_position != 1)
 	{
-		printf(PINK "Error\nNot the correct amount of elements\n" RESET);
+		printf("Error\nNot the correct amount of elements\n");
 		return (1);
 	}
 	return (0);
@@ -89,19 +89,19 @@ static int	open_textures(t_tools *tools)
 
 	fd = open(tools->ea, O_RDONLY);
 	if (fd < 0)
-		return (printf("texture doesn't exist\n"), 1);
+		return (printf("Error\nEAST texture doesn't exist\n"), 1);
 	close(fd);
 	fd = open(tools->no, O_RDONLY);
 	if (fd < 0)
-		return (printf("texture doesn't exist\n"), 1);
+		return (printf("Error\nNORTH texture doesn't exist\n"), 1);
 	close(fd);
 	fd = open(tools->so, O_RDONLY);
 	if (fd < 0)
-		return (printf("texture doesn't exist\n"), 1);
+		return (printf("Error\nSOUTH texture doesn't exist\n"), 1);
 	close(fd);
 	fd = open(tools->we, O_RDONLY);
 	if (fd < 0)
-		return (printf("texture doesn't exist\n"), 1);
+		return (printf("Error\nWEST texture doesn't exist\n"), 1);
 	close(fd);
 	return (0);
 }
