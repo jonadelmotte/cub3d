@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:40:58 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 14:53:00 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 17:32:00 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,23 @@ void	search_wall(t_data *data, t_raycast *ray)
 		ray->player_dist = ray->size_dist.x - ray->size_rayon.x;
 	else
 		ray->player_dist = ray->size_dist.y - ray->size_rayon.y;
+	// if (ray->player_dist <= 0.0)
+	// 	ray->player_dist = 0.003;
 }
 
 void	search_wall_height(t_raycast *ray)
 {
-	ray->wall_height = WIN_HEIGHT / ray->player_dist;
+	if (ray->player_dist <= 0.0)
+		ray->wall_height = WIN_HEIGHT - 1;
+	else
+		ray->wall_height = WIN_HEIGHT / ray->player_dist;
 	ray->wall_start = -ray->wall_height / 2 + WIN_HEIGHT / 2;
 	if (ray->wall_start < 0)
 		ray->wall_start = 0;
 	ray->wall_end = ray->wall_height / 2 + WIN_HEIGHT / 2;
 	if (ray->wall_end >= WIN_HEIGHT)
 		ray->wall_end = WIN_HEIGHT - 1;
+	printf("%i, %i, %i\n", ray->wall_height, ray->wall_start, ray->wall_end);
 }
 
 void	search_wall_slice(t_data *data, t_raycast *ray)

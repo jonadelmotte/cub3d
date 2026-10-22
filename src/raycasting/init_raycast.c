@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 14:46:22 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 14:55:24 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 17:20:07 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	put_pixel_and_continue(t_data *data, int window_i, int y, int color)
 {
 	put_pixel(data, window_i, y, color);
-	return (y + 1);
+	return (1);
 }
 
 static void	wall_print(t_data *data, t_raycast *ray, int window_i)
@@ -31,7 +31,7 @@ static void	wall_print(t_data *data, t_raycast *ray, int window_i)
 	wall_y = (double)data->walls[wall_side].img_h / (double)ray->wall_height;
 	p = (ray->wall_start - (WIN_HEIGHT / 2) + (ray->wall_height / 2)) * wall_y;
 	while (y < ray->wall_start)
-		y = put_pixel_and_continue(data, window_i, y, data->colors.ceiling);
+		y += put_pixel_and_continue(data, window_i, y, data->colors.ceiling);
 	while (y <= ray->wall_end)
 	{
 		wall_i = (int)p;
@@ -40,11 +40,11 @@ static void	wall_print(t_data *data, t_raycast *ray, int window_i)
 		if (wall_i < 0)
 			wall_i = 0;
 		p += wall_y;
-		y = put_pixel_and_continue(data, window_i, y, find_pixel(data,
+		y += put_pixel_and_continue(data, window_i, y, find_pixel(data,
 					ray->wall_slice, wall_i, wall_side));
 	}
 	while (y < WIN_HEIGHT)
-		y = put_pixel_and_continue(data, window_i, y, data->colors.floor);
+		y += put_pixel_and_continue(data, window_i, y, data->colors.floor);
 }
 
 void	init_raycast(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/22 16:12:06 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 16:38:05 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,8 @@
 # define WIN_HEIGHT 1025
 
 # define FOV 0.66 // poser la question a thomas
-# define P_SPEED 0.2
+# define P_SPEED 0.5
 # define C_SPEED 0.1
-
-# define PINK "\e[38;5;169m"
-# define PURPLE_1 "\e[38;5;181m"
-# define PURPLE_2 "\e[38;5;161m"
-# define RESET "\e[0;39m"
 
 typedef enum e_walls
 {
