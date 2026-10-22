@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:29:39 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 15:05:18 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:37:12 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ int	final_map(t_tools *tools)
 		}
 		line++;
 	}
+	tools->map_size = line;
 	return (0);
 }

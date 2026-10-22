@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 15:51:46 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 14:31:48 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:37:41 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_tools	init_null(void)
 	tools.f = NULL;
 	tools.c = NULL;
 	tools.map = NULL;
+	tools.map_size = 0;
 	return (tools);
 }
 

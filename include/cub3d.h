@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/22 14:53:46 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 16:12:06 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <math.h>
 # include <mlx.h>
 
+# define VERY_IMPORTANT_TO_DEFINE "Error\nFor safety reasons, we as a team\n"
+# define PART_2 "have decided that this is to big for a window\nwith pleasure\n"
+# define PART_3 "Team et Tam\n"
 # define FLOOR '0'
 # define WALL '1'
 # define ESC 65307
@@ -31,12 +34,12 @@
 # define LEFT 65361
 # define RIGHT 65363
 
-# define WIN_WIDTH 1000
-# define WIN_HEIGHT 1000
+# define WIN_WIDTH 1925
+# define WIN_HEIGHT 1025
 
-# define FOV 0.66
-# define P_SPEED 0.09
-# define C_SPEED 0.04
+# define FOV 0.66 // poser la question a thomas
+# define P_SPEED 0.2
+# define C_SPEED 0.1
 
 # define PINK "\e[38;5;169m"
 # define PURPLE_1 "\e[38;5;181m"
@@ -71,6 +74,7 @@ typedef struct s_tools
 	char		*f;
 	char		*c;
 	char		**map;
+	size_t		map_size;
 }				t_tools;
 
 typedef struct s_pos
@@ -162,6 +166,8 @@ int				resolve_parsing(t_data *data, int argc, char *argv);
 int				color_parsing(t_data *data);
 void			fill_player(char dir, int x, int y, t_player *player);
 int				check_sides(char **map);
+int				check_speed(void);
+int				check_screen(void);
 
 /* * * * * * * * * * * * MLX * * * * * * * * * * * */
 int				init_game(t_data *data);
@@ -171,6 +177,7 @@ void			put_pixel(t_data *data, int x, int y, int color);
 void			handle_key_hook(t_data *data);
 void			handle_key_press(int key, t_data *data);
 void			handle_key_release(int key, t_data *data);
+void			player_move(t_data *data, double side, int way);
 
 /* * * * * * * * * * * RAYCASTING * * * * * * * * * * * */
 void			init_raycast(t_data *data);

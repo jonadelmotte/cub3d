@@ -6,36 +6,11 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 15:13:06 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 14:17:26 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:40:33 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
-
-static void	player_move(t_data *data, double side, int way)
-{
-	t_pos	move;
-
-	if (way == 0)
-	{
-		move.x = side * data->player.dir.x * P_SPEED;
-		move.y = side * data->player.dir.y * P_SPEED;
-	}
-	else
-	{
-		move.x = side * data->player.view.x * P_SPEED;
-		move.y = side * data->player.view.y * P_SPEED;
-	}
-	if (data->tools.map[(int)(data->player.pos.y
-			+ move.y)][(int)(data->player.pos.x + move.x)] != WALL)
-	{
-		data->player.pos.x += move.x;
-		data->player.pos.y += move.y;
-		data->player.box.x = (int)data->player.pos.x;
-		data->player.box.y = (int)data->player.pos.y;
-		init_raycast(data);
-	}
-}
 
 static void	view_move(t_data *data, int side)
 {
