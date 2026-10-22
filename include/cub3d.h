@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/20 16:20:17 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 13:42:00 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ typedef struct s_img
 	int			endian;
 	int			img_h;
 	int			img_w;
+	int			exist;
 }				t_img;
 
 typedef struct s_data
@@ -146,6 +147,7 @@ void			free_tools(t_tools *tools);
 /* * * * * * * * * * * LEXER * * * * * * * * * * * * * */
 t_tools			init_null(void);
 void			init_keys(t_data *data);
+void			init_walls_exist(t_data *data);
 int				lex_line(char **final_tab, t_tools *tools);
 int				final_lexer(t_data *data, char *argv);
 int				final_map(t_tools *tools);
@@ -163,12 +165,12 @@ int				check_sides(char **map);
 
 /* * * * * * * * * * * * MLX * * * * * * * * * * * */
 int				init_game(t_data *data);
-void			init_asset(t_data *data);
+void			game(t_data *data);
 int				find_pixel(t_data *data, int x, int y, int wall_side);
 void			put_pixel(t_data *data, int x, int y, int color);
-void handle_key_hook(t_data *data);
-void handle_key_press(int key, t_data *data);
-void handle_key_release(int key, t_data *data);
+void			handle_key_hook(t_data *data);
+void			handle_key_press(int key, t_data *data);
+void			handle_key_release(int key, t_data *data);
 
 /* * * * * * * * * * * RAYCASTING * * * * * * * * * * * */
 void			init_raycast(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 16:30:28 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/20 15:15:34 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 13:42:25 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,8 @@ static int open_textures(t_tools *tools)
 }
 
 int	resolve_parsing(t_data *data, int argc, char *argv)
-{	
+{
+	init_walls_exist(data);
 	init_keys(data);
 	data->tools = init_null();
 	if (check_args(argc, argv) == 1)

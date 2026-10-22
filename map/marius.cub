@@ -1,24 +1,24 @@
 
 
 
-NO       ./path_to_marius_texture
+NO       ./textures/jim_queen/jim_1.xpm
 
-F 220,100,0
-
-
-
-SO                ./path_to_the_south_texture      
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+F 255,51,153
 
 
 
-C 225,30,0
+SO                ./textures/jim_queen/jim_2.xpm      
+WE ./textures/jim_queen/jim_3.xpm
+EA ./textures/jim_queen/lucien.xpm
+
+
+
+C 255,153,204
 
 
 
 1111111111
 1W00000001
-1000000001
+1000100001
 1000000001
 1111111111

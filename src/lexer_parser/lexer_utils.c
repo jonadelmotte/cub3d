@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 15:51:46 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/20 16:05:51 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/22 13:41:05 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ void	init_keys(t_data *data)
 	data->keys[K_KEY_D] = 0;
 	data->keys[K_LEFT] = 0;
 	data->keys[K_RIGHT] = 0;
+}
+
+void	init_walls_exist(t_data *data)
+{
+	data->screen.exist = 0;
+	data->walls[WEST].exist = 0;
+	data->walls[EAST].exist = 0;
+	data->walls[SOUTH].exist = 0;
+	data->walls[NORTH].exist = 0;
 }
 
 char	*rm_newline(char *str)

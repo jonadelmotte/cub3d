@@ -4,8 +4,8 @@ F 220,100,0
 
 
 SO                ./textures/flora.xpm      
-WE ./textures/test.xpm
-EA ./textures/test.xpm
+WE ./textures/texture_EA
+EA ./textures/texture_EA
 
 
 
