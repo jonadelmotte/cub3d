@@ -51,8 +51,6 @@ make re     # recreate the cub3D executable
 | **`ESC`** / **`×`** | leave the game               |
 | **`←`**      | look left |
 | **`→`**	  | look right |
-<br /> 
-<br />
 
 ## Resources
 
@@ -64,7 +62,7 @@ make re     # recreate the cub3D executable
 ### tools
 
 - https://github.com/42paris/minilibx-linux.git &emsp; -> minilibx
-- https://convertio.co/fr/png-xpm/ &emsp;             -> xpm converter
+- https://convertio.co/fr/png-xpm/ &emsp; -> xpm converter
 
 ### README doc
 - https://terpconnect.umd.edu/~zben/Web/CharSet/htmlchars.html &emsp; -> non ascii characters (←, ↑, →, ↓, ×) 
