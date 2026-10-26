@@ -1,15 +1,15 @@
-  NO       ./textures/flora.xpm
+  NO       ./textures/bebe.xpm
 
-F 220,100,0
-
-
-SO                ./textures/flora.xpm      
-WE ./textures/texture_EA
-EA ./textures/texture_EA
+F 0,0,0
 
 
+SO                ./textures/bebe.xpm      
+WE ./textures/bebe.xpm
+EA ./textures/bebe.xpm
 
-C 225,30,58
+
+
+C 0,0,0
 
 
 
