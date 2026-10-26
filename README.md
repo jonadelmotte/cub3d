@@ -12,15 +12,19 @@ first-person perspective. You have to create this
 representation using the ray-casting principles in the same way as Wolfenstein.
 
 ### Objectifs :
-- render a 3D map that you read from a `.cub` file
+- render a 3D map that you read from a `.cub` file  
+- the file must contain : <br />
+&emsp; - A floor and cieling line with r,g,b colors ( ex: F 255,153,0 )  
+&emsp; - The path to a each of the wall textures (N, S, E, W)  
+&emsp; - A a map surrounded by walls   
 - there must be one player, that look in a certain direction (N, S, E, W) <br />
 - only those characters are allowed : <br />
 &emsp; `1` = walls  
 &emsp; `0` = floors  
 &emsp; `N` = north  
-&emsp; `W` = west
-&emsp; `E` = east
-&emsp; `S` = south 
+&emsp; `W` = west  
+&emsp; `E` = east  
+&emsp; `S` = south  
 - only one player is allowed
 - the player must be able to walk around the map without going through walls
 <br />
@@ -46,10 +50,10 @@ make re     # recreat the cub3D executable
 |   **`A`** | go left      |
 |      **`S`** 	 | go down         |
 |      **`D`**	 | go right      |
-| **`ESC`** / **`×`** / **`Q`**| leave the game               |
+| **`ESC`** / **`×`** | leave the game               |
 | **`←`**      | look left |
 | **`→`**	  | look right |
-<br /> / 
+<br /> 
 <br />
 
 ## Resources
