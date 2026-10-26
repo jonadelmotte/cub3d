@@ -1,5 +1,5 @@
 
-*This project has been created as part of the 42 curriculum by sdabbas & jdelmott* 
+*This project has been created as part of the 42 curriculum by sdabbas[, jdelmott]* 
 
 # CUB3D
 <br />
@@ -15,8 +15,8 @@ representation using the ray-casting principles in the same way as Wolfenstein.
 - render a 3D map that you read from a `.cub` file  
 - the file must contain : <br />
 &emsp; - A floor and cieling line with r,g,b colors ( ex: F 255,153,0 )  
-&emsp; - The path to a each of the wall textures (N, S, E, W)  
-&emsp; - A a map surrounded by walls   
+&emsp; - The path to each of the wall textures (N, S, E, W)  
+&emsp; - A map surrounded by walls   
 - there must be one player, that look in a certain direction (N, S, E, W) <br />
 - only those characters are allowed : <br />
 &emsp; `1` = walls  
@@ -41,7 +41,7 @@ make re     # recreat the cub3D executable
 ```
 
 ### test the game :
-&emsp; `./so_long <map.ber>`
+&emsp; `./cub3D map/<map.cub>`
 
 ### how to play :
 | Key / Input    | Action                       |
@@ -59,23 +59,18 @@ make re     # recreat the cub3D executable
 ## Resources
 
 ### doc
-- https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html &emsp; -> how to use the minilibx
+- https://harm-smits.github.io/42docs/libs/minilibx getting_started.html &emsp; -> how to use the minilibx
 - https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx &emsp; -> how to use the minilibx
-- https://www.geeksforgeeks.org/dsa/flood-fill-algorithm/ &emsp; -> flood fill algorithm
+
 
 ### tools
-- https://itch.io/game-assets/free/tag-sprites &emsp; -> pixel art library
-- https://convertio.co/fr/png-xpm/ &emsp;             -> png to xpm converter
-- https://www.piskelapp.com/ &emsp;                   -> modify your pixel art
+
+- https://github.com/42paris/minilibx-linux.git &emsp; -> minilibx
+- https://convertio.co/fr/png-xpm/ &emsp;             -> xpm converter
 
 ### README doc
-- https://github.com/raveriss/so_long/blob/main/README.md?plain=1 &emsp; -> exemple of a so_long README
 - https://terpconnect.umd.edu/~zben/Web/CharSet/htmlchars.html &emsp; -> non ascii characters (←, ↑, →, ↓, ×) 
 
 
 
-https://github.com/42paris/minilibx-linux.git 
 
-
-
-https://bigconvert.11zon.com/en/jpeg-to-xpm
