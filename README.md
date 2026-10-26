@@ -1,5 +1,5 @@
 
-*This project has been created as part of the 42 curriculum by sdabbas[, jdelmott]* 
+*This project has been created as part of the 42 curriculum by sdabbas, jdelmott* 
 
 # CUB3D
 <br />
@@ -58,6 +58,9 @@ make re     # recreate the cub3D executable
 - https://harm-smits.github.io/42docs/libs/minilibx getting_started.html &emsp; -> how to use the minilibx
 - https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx &emsp; -> how to use the minilibx
 
+### IA Usage
+
+IA was used to understand the raycasting algorithm and it's mathematical equations
 
 ### tools
 
