@@ -6,11 +6,11 @@
 #    By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/03 14:15:13 by jdelmott          #+#    #+#              #
-#    Updated: 2026/10/22 15:50:02 by sdabbas          ###   ########.fr        #
+#    Updated: 2026/10/26 14:11:43 by sdabbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = cub3D
 
 FILES = main lexer open_file map_parsing free_all parsing final_map lexer_utils \
 		check_sides color_parsing init_game init_raycast print key_hook define \
@@ -55,7 +55,7 @@ all: $(NAME)
 
 $(NAME): make_mlx $(OBJ) make_libft 
 	@$(CC) $(FLAGSMAC) $(OBJ) $(MLX_FLAGS) $(LIBFT) -g3 -o $(NAME)
-	@echo -e "$(PURPLE_2)cub3d Compiled!$(RESET)"
+	@echo -e "$(PURPLE_2)cub3D Compiled!$(RESET)"
 
 $(OBJ_DIR)%.o: %.c $(OBJF)
 	@$(CC) $(FLAGSMAC) -I$(MLX_DIR) -c -g3 $< -o $@
