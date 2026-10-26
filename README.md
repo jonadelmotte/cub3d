@@ -27,17 +27,15 @@ representation using the ray-casting principles in the same way as Wolfenstein.
 &emsp; `S` = south  
 - only one player is allowed
 - the player must be able to walk around the map without going through walls
-<br />
-<br />
 
 ## Instructions
 
 ### Compilation
 ```bash
-make        # creat the cub3D executable
+make        # create the cub3D executable
 make clean  # erase every obj files
 make fclean # erase every obj files and the executable
-make re     # recreat the cub3D executable
+make re     # recreate the cub3D executable
 ```
 
 ### test the game :
@@ -46,9 +44,9 @@ make re     # recreat the cub3D executable
 ### how to play :
 | Key / Input    | Action                       |
 |----------------|------------------------------|
-|   **`W`**	 | go up        |
+|   **`W`**	 | go forward        |
 |   **`A`** | go left      |
-|      **`S`** 	 | go down         |
+|      **`S`** 	 | go backward        |
 |      **`D`**	 | go right      |
 | **`ESC`** / **`×`** | leave the game               |
 | **`←`**      | look left |
