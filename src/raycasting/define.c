@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:36:10 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 14:38:10 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/26 11:55:32 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int	define_side(t_raycast ray)
 	else
 	{
 		if (ray.rayon.y > 0)
-			return (NORTH);
-		else
 			return (SOUTH);
+		else
+			return (NORTH);
 	}
 }

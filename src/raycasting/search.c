@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:40:58 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 17:32:00 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/26 12:29:40 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,26 @@ void	search_wall(t_data *data, t_raycast *ray)
 			ray->size_dist.y += ray->size_rayon.y;
 			ray->side = 1;
 		}
-		if (data->tools.map[(int)ray->map.y][(int)ray->map.x] == '1')
+		if (data->tools.map[(int)ray->map.y][(int)ray->map.x] == WALL)
 			wall = true;
 	}
 	if (ray->side == 0)
 		ray->player_dist = ray->size_dist.x - ray->size_rayon.x;
 	else
 		ray->player_dist = ray->size_dist.y - ray->size_rayon.y;
-	// if (ray->player_dist <= 0.0)
-	// 	ray->player_dist = 0.003;
 }
 
 void	search_wall_height(t_raycast *ray)
 {
-	if (ray->player_dist <= 0.0)
-		ray->wall_height = WIN_HEIGHT - 1;
-	else
-		ray->wall_height = WIN_HEIGHT / ray->player_dist;
+	if (ray->player_dist <= 0.0001)
+	 	ray->player_dist = 0.0001;
+	ray->wall_height = WIN_HEIGHT / ray->player_dist;
 	ray->wall_start = -ray->wall_height / 2 + WIN_HEIGHT / 2;
 	if (ray->wall_start < 0)
 		ray->wall_start = 0;
 	ray->wall_end = ray->wall_height / 2 + WIN_HEIGHT / 2;
 	if (ray->wall_end >= WIN_HEIGHT)
 		ray->wall_end = WIN_HEIGHT - 1;
-	printf("%i, %i, %i\n", ray->wall_height, ray->wall_start, ray->wall_end);
 }
 
 void	search_wall_slice(t_data *data, t_raycast *ray)
@@ -68,8 +64,7 @@ void	search_wall_slice(t_data *data, t_raycast *ray)
 	else if (ray->side == 1)
 		ray->wall_pos = data->player.pos.x + ray->player_dist * ray->rayon.x;
 	ray->wall_pos -= floor(ray->wall_pos);
-	ray->wall_slice = (int)(ray->wall_pos
-			* (double)data->walls[wall_side].img_w);
+	ray->wall_slice = (int)(ray->wall_pos * (double)data->walls[wall_side].img_w);
 	if ((ray->side == 0 && ray->rayon.x > 0) || (ray->side == 1
 			&& ray->rayon.y < 0))
 		ray->wall_slice = data->walls[wall_side].img_w - ray->wall_slice - 1;

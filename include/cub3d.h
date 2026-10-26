@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:14:28 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/10/22 16:38:05 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/26 12:24:01 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define WIN_HEIGHT 1025
 
 # define FOV 0.66 // poser la question a thomas
-# define P_SPEED 0.5
+# define P_SPEED 0.08
 # define C_SPEED 0.1
 
 typedef enum e_walls

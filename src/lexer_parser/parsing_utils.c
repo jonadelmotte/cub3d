@@ -6,7 +6,7 @@
 /*   By: sdabbas <sdabbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:47:15 by sdabbas           #+#    #+#             */
-/*   Updated: 2026/10/22 16:21:04 by sdabbas          ###   ########.fr       */
+/*   Updated: 2026/10/26 12:25:33 by sdabbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	check_elements(t_data *data, int x, int y, int start_position)
 
 int	check_speed(void)
 {
-	if (P_SPEED > 1.0)
+	if (P_SPEED > 0.1)
 	{
 		printf("Error\n%fWAW this is way to fast\n", P_SPEED);
 		return (1);
